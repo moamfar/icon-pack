@@ -7,7 +7,7 @@ pnpm-lock.yaml
 # --- Build Artifacts ---
 # We ignore the generated components because they are built from src/raw.
 # They will be generated again when you run 'npm run build' or 'npm install'.
-src/generated/
+
 
 # --- Logs ---
 logs/
