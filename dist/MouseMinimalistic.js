@@ -1,0 +1,28 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.MouseMinimalistic = void 0;
+const react_1 = __importDefault(require("react"));
+const svgs = {
+  "broken": `
+<path d="M19 15C19 18.866 15.866 22 12 22C8.13401 22 5 18.866 5 15V9C5 5.13401 8.13401 2 12 2C15.866 2 19 5.13401 19 9V11" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M12 5V8" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
+`,
+  "fill": `
+<path fill-rule="evenodd" clip-rule="evenodd" d="M19 9V15C19 18.866 15.866 22 12 22C8.13401 22 5 18.866 5 15V9C5 5.13401 8.13401 2 12 2C15.866 2 19 5.13401 19 9ZM12 4.25C12.4142 4.25 12.75 4.58579 12.75 5V8C12.75 8.41421 12.4142 8.75 12 8.75C11.5858 8.75 11.25 8.41421 11.25 8V5C11.25 4.58579 11.5858 4.25 12 4.25Z"/>
+</svg>
+`,
+  "outline": `
+<path fill-rule="evenodd" clip-rule="evenodd" d="M4.25 9C4.25 4.71979 7.71979 1.25 12 1.25C16.2802 1.25 19.75 4.71979 19.75 9V15C19.75 19.2802 16.2802 22.75 12 22.75C7.71979 22.75 4.25 19.2802 4.25 15V9ZM12 2.75C8.54822 2.75 5.75 5.54822 5.75 9V15C5.75 18.4518 8.54822 21.25 12 21.25C15.4518 21.25 18.25 18.4518 18.25 15V9C18.25 5.54822 15.4518 2.75 12 2.75ZM12 4.25C12.4142 4.25 12.75 4.58579 12.75 5V8C12.75 8.41421 12.4142 8.75 12 8.75C11.5858 8.75 11.25 8.41421 11.25 8V5C11.25 4.58579 11.5858 4.25 12 4.25Z"/>
+</svg>
+`,
+};
+const MouseMinimalistic = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+    const activeWeight = Object.keys(svgs).includes(weight) ? weight : Object.keys(svgs)[0];
+    return (react_1.default.createElement("svg", Object.assign({ viewBox: "0 0 24 24", width: size, height: size, fill: color }, props),
+        react_1.default.createElement("g", { dangerouslySetInnerHTML: { __html: svgs[activeWeight] } })));
+};
+exports.MouseMinimalistic = MouseMinimalistic;
