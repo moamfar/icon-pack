@@ -26,21 +26,79 @@ const toCamelCase = (str) => {
     .replace(/^\w/, (char) => char.toLowerCase());
 };
 
-// Parse SVG
-function parseSvg(svgString) {
+// Parse SVG with proper duotone handling
+function parseSvg(svgString, weightName = "") {
+  const isDuotone = weightName.toLowerCase().includes("duotone");
   const viewBoxMatch = svgString.match(/viewBox="([^"]+)"/);
   const viewBox = viewBoxMatch ? viewBoxMatch[1] : "0 0 256 256";
 
   let content = svgString.replace(/^<svg[^>]*>/, "").replace(/<\/svg>$/, "");
 
-  // Remove hardcoded fills/strokes (except none)
-  content = content.replace(/\sfill="[^"]*"/g, (match) => {
-    return match.includes("none") ? match : "";
-  });
+  if (isDuotone) {
+    // For duotone icons: Find all unique fill colors
+    const fillMatches = [...content.matchAll(/fill="([^"]*)"/g)];
+    const uniqueFills = new Set();
 
-  content = content.replace(/\sstroke="[^"]*"/g, (match) => {
-    return match.includes("none") ? match : "";
-  });
+    fillMatches.forEach((match) => {
+      if (match[1] !== "none" && match[1] !== "currentColor") {
+        uniqueFills.add(match[1]);
+      }
+    });
+
+    const fillsArray = Array.from(uniqueFills);
+
+    if (fillsArray.length >= 2) {
+      // Multiple colors detected - determine primary and secondary
+      // Usually the first color is primary, second is secondary
+      let primaryReplaced = false;
+
+      content = content.replace(/fill="([^"]*)"/g, (match, fillValue) => {
+        if (fillValue === "none") return 'fill="none"';
+        if (fillValue === "currentColor") return match;
+
+        if (fillValue === fillsArray[0] && !primaryReplaced) {
+          // Primary color → currentColor (full opacity)
+          primaryReplaced = true;
+          return 'fill="currentColor"';
+        } else {
+          // Secondary color → currentColor with reduced opacity
+          return 'fill="currentColor" opacity="0.4"';
+        }
+      });
+    } else {
+      // Single color or couldn't detect - use simple approach
+      let firstFill = true;
+
+      content = content.replace(/fill="([^"]*)"/g, (match, fillValue) => {
+        if (fillValue === "none") return 'fill="none"';
+        if (fillValue === "currentColor") return match;
+
+        if (firstFill) {
+          firstFill = false;
+          return 'fill="currentColor"';
+        } else {
+          return 'fill="currentColor" opacity="0.4"';
+        }
+      });
+    }
+
+    // Handle strokes in duotone
+    content = content.replace(/stroke="([^"]*)"/g, (match, strokeValue) => {
+      if (strokeValue === "none") return 'stroke="none"';
+      return 'stroke="currentColor"';
+    });
+  } else {
+    // For non-duotone icons: replace all with currentColor
+    content = content.replace(/fill="([^"]*)"/g, (match, fillValue) => {
+      if (fillValue === "none") return 'fill="none"';
+      return 'fill="currentColor"';
+    });
+
+    content = content.replace(/stroke="([^"]*)"/g, (match, strokeValue) => {
+      if (strokeValue === "none") return 'stroke="none"';
+      return 'stroke="currentColor"';
+    });
+  }
 
   return { viewBox, content };
 }
@@ -114,7 +172,7 @@ componentNames.forEach((componentName) => {
 
     if (fs.existsSync(filePath)) {
       const svgContent = fs.readFileSync(filePath, "utf-8");
-      const parsed = parseSvg(svgContent);
+      const parsed = parseSvg(svgContent, folderWeight);
 
       weightContents[codeWeight] = parsed.content;
       if (!sharedViewBox) sharedViewBox = parsed.viewBox;
@@ -143,11 +201,25 @@ const react_1 = __importDefault(require("react"));
 const svgs = {
 ${weightMapString}
 };
-const ${componentName} = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+
+const ${componentName} = ({ size = 24, color = "currentColor", weight = "outline", className = "", style = {}, ...props }) => {
     const activeWeight = Object.keys(svgs).includes(weight) ? weight : Object.keys(svgs)[0];
-    return (react_1.default.createElement("svg", Object.assign({ viewBox: "${sharedViewBox}", width: size, height: size, fill: color }, props),
+    
+    const svgProps = {
+        viewBox: "${sharedViewBox}",
+        width: size,
+        height: size,
+        fill: "currentColor",
+        stroke: "currentColor",
+        className: className,
+        style: { color, ...style },
+        ...props
+    };
+    
+    return (react_1.default.createElement("svg", svgProps,
         react_1.default.createElement("g", { dangerouslySetInnerHTML: { __html: svgs[activeWeight] } })));
 };
+
 exports.${componentName} = ${componentName};
 `;
 
@@ -162,6 +234,8 @@ import { IconProps } from "./types";
 export declare const ${componentName}: React.FC<IconProps>;
 `;
   fs.writeFileSync(path.join(outputDir, `${componentName}.d.ts`), dtsContent);
+
+  console.log(`✅ Generated ${componentName}`);
 });
 
 // Create index.js
@@ -203,4 +277,7 @@ const indexEsm = `${indexEsmExports}
 `;
 fs.writeFileSync(path.join(outputDir, "index.esm.js"), indexEsm);
 
-console.log(`✅ Build complete! Generated ${componentNames.length} icons in dist/`);
+console.log(`\n✅ Build complete! Generated ${componentNames.length} icons in dist/`);
+console.log(`📦 CommonJS: dist/index.js`);
+console.log(`📦 ES Module: dist/index.esm.js`);
+console.log(`📦 TypeScript: dist/index.d.ts`);
