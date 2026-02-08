@@ -1,42 +1,13 @@
-# --- Dependencies ---
-node_modules/
-package-lock.json
-yarn.lock
-pnpm-lock.yaml
+# Build scripts (should not be in final package)
+build.js
+readme.js
 
-# --- Build Artifacts ---
-# We ignore the generated components because they are built from src/raw.
-# They will be generated again when you run 'npm run build' or 'npm install'.
+# TypeScript config (optional)
+tsconfig.json
 
-
-# --- Logs ---
-logs/
+# Development files
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
-
-# --- OS & Editor Files ---
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
+.vscode/
 .idea/
-.vscode/*
-!.vscode/extensions.json
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
-# --- Environment & Misc ---
-.env
-.env.local
-.env.development.local
-.env.test.local
+coverage/

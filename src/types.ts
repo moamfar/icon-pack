@@ -1,7 +1,6 @@
-import type { SVGAttributes } from "react";
+import { SVGProps } from "react";
 
-// We use a string type here because weights are dynamic based on folder names
-export interface IconProps extends SVGAttributes<SVGElement> {
+export interface IconProps extends SVGProps<SVGSVGElement> {
   size?: number;
   color?: string;
   weight?: "bold" | "boldduotone" | "broken" | "lineduotone" | "linear" | "outline";
