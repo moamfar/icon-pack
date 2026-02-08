@@ -21,7 +21,7 @@ const toCamelCase = (str) =>
     .replace(/[^a-zA-Z0-9]+(\w)/g, (_, char) => char.toUpperCase())
     .replace(/^\w/, (c) => c.toLowerCase());
 
-// Parse SVG with duotone support
+// Parse SVG with improved Duotone support and Tailwind compatibility
 function parseSvg(svgString, weightName = "") {
   const isDuotone = weightName.toLowerCase().includes("duotone");
   const viewBoxMatch = svgString.match(/viewBox="([^"]+)"/);
@@ -30,28 +30,53 @@ function parseSvg(svgString, weightName = "") {
   let content = svgString.replace(/^<svg[^>]*>/, "").replace(/<\/svg>$/, "");
 
   if (isDuotone) {
+    // Find all unique fill values to detect primary vs secondary
     const fillMatches = [...content.matchAll(/fill="([^"]*)"/g)];
     const uniqueFills = Array.from(
       new Set(fillMatches.map((m) => m[1]).filter((v) => v !== "none" && v !== "currentColor")),
     );
 
-    let primaryUsed = false;
-    content = content.replace(/fill="([^"]*)"/g, (match, fill) => {
-      if (fill === "none") return 'fill="none"';
-      if (fill === "currentColor") return match;
-      if (!primaryUsed) {
-        primaryUsed = true;
-        return 'fill="currentColor"';
-      } else {
-        return 'fill="currentColor" opacity="0.4"';
-      }
-    });
+    if (uniqueFills.length > 1) {
+      // Map fill values to their frequency to identify Primary (High freq) and Secondary (Low freq)
+      const fillCounts = {};
+      fillMatches.forEach((m) => {
+        const f = m[1];
+        if (f !== "none" && f !== "currentColor") {
+          fillCounts[f] = (fillCounts[f] || 0) + 1;
+        }
+      });
 
+      const sortedFills = Object.keys(fillCounts).sort((a, b) => fillCounts[b] - fillCounts[a]);
+      const primaryFill = sortedFills[0];
+      const secondaryFill = sortedFills[1];
+
+      // Replace fills
+      content = content.replace(/fill="([^"]*)"/g, (match, fill) => {
+        if (fill === "none") return 'fill="none"';
+        if (fill === "currentColor") return match;
+
+        if (fill === primaryFill) {
+          return 'fill="currentColor"'; // Primary takes the main color
+        } else {
+          // Secondary takes the main color but with opacity
+          return 'fill="currentColor" style="opacity: 0.4"';
+        }
+      });
+    } else {
+      // Fallback if only one fill found (treat as solid)
+      content = content.replace(/fill="([^"]*)"/g, (match, fill) => {
+        if (fill === "none") return 'fill="none"';
+        return 'fill="currentColor"';
+      });
+    }
+
+    // Handle Strokes for Duotone
     content = content.replace(/stroke="([^"]*)"/g, (match, stroke) => {
       if (stroke === "none") return 'stroke="none"';
       return 'stroke="currentColor"';
     });
   } else {
+    // Solid / Outline Logic
     content = content.replace(/fill="([^"]*)"/g, (match, fill) =>
       fill === "none" ? 'fill="none"' : 'fill="currentColor"',
     );
@@ -133,17 +158,23 @@ componentNames.forEach((componentName) => {
     .map((w) => `  "${w}": \`${weightContents[w].replace(/`/g, "\\`")}\`,`)
     .join("\n");
 
+  // --- IMPROVED COMPONENT GENERATION ---
+  // 1. We pass color directly to the SVG props, NOT inside style.
+  //    This allows Tailwind classes (like 'text-red-500') to work correctly.
+  // 2. We keep style={style} to allow custom CSS styles passed by the user.
   const jsContent = `"use strict";
 var __importDefault = (this && this.__importDefault) || function (mod) { return (mod && mod.__esModule) ? mod : { "default": mod }; };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.${componentName} = void 0;
 const react_1 = __importDefault(require("react"));
 const svgs = {
-${weightMapString}
+ ${weightMapString}
 };
 const ${componentName} = ({ size = 24, color = "currentColor", weight = "outline", className = "", style = {}, ...props }) => {
     const activeWeight = Object.keys(svgs).includes(weight) ? weight : Object.keys(svgs)[0];
-    const svgProps = { viewBox: "${sharedViewBox}", width: size, height: size, fill: "currentColor", stroke: "currentColor", className, style: { color, ...style }, ...props };
+    // Passing 'color' as a prop on the SVG element allows 'currentColor' in paths to inherit it.
+    // Tailwind classes on 'className' can now effectively control the color via 'text-*' utilities.
+    const svgProps = { viewBox: "${sharedViewBox}", width: size, height: size, fill: "currentColor", stroke: "currentColor", className, style, color, ...props };
     return react_1.default.createElement("svg", svgProps, react_1.default.createElement("g", { dangerouslySetInnerHTML: { __html: svgs[activeWeight] } }));
 };
 exports.${componentName} = ${componentName};
