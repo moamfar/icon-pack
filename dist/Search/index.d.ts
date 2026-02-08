@@ -1,0 +1,12 @@
+export { MagniferBug } from "./MagniferBug";
+export { MagniferZoomIn } from "./MagniferZoomIn";
+export { MagniferZoomOut } from "./MagniferZoomOut";
+export { Magnifer } from "./Magnifer";
+export { MinimalisticMagniferBug } from "./MinimalisticMagniferBug";
+export { MinimalisticMagniferZoomIn } from "./MinimalisticMagniferZoomIn";
+export { MinimalisticMagniferZoomOut } from "./MinimalisticMagniferZoomOut";
+export { MinimalisticMagnifer } from "./MinimalisticMagnifer";
+export { RoundedMagniferBug } from "./RoundedMagniferBug";
+export { RoundedMagniferZoomIn } from "./RoundedMagniferZoomIn";
+export { RoundedMagniferZoomOut } from "./RoundedMagniferZoomOut";
+export { RoundedMagnifer } from "./RoundedMagnifer";

@@ -1,0 +1,15 @@
+export { CloudFile } from "./CloudFile";
+export { CodeFile } from "./CodeFile";
+export { FigmaFile } from "./FigmaFile";
+export { FileCheck } from "./FileCheck";
+export { FileCorrupted } from "./FileCorrupted";
+export { FileDownload } from "./FileDownload";
+export { FileFavourite } from "./FileFavourite";
+export { FileLeft } from "./FileLeft";
+export { FileRemove } from "./FileRemove";
+export { FileRight } from "./FileRight";
+export { FileSend } from "./FileSend";
+export { FileSmile } from "./FileSmile";
+export { FileText } from "./FileText";
+export { File } from "./File";
+export { ZipFile } from "./ZipFile";
