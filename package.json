@@ -1,35 +1,58 @@
 {
   "name": "@moamfar/icon-pack",
   "version": "1.0.3",
-  "description": "A collection of beautiful, weight-adjustable SVG icons.",
-  "main": "./src/generated/index.js",
-  "module": "./src/generated/index.js",
-  "types": "./src/generated/index.d.ts",
-  "sideEffects": false,
+  "description": "A collection of beautiful, weight-adjustable SVG React icons.",
+  "license": "MIT",
+  "author": "Moamfar",
+  "homepage": "https://github.com/moamfar/icon-pack",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moamfar/icon-pack.git"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
   "files": [
-    "src/generated",
+    "dist",
     "README.md",
     "LICENSE"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
+  "sideEffects": false,
   "scripts": {
+    "clean": "rm -rf dist",
     "build:icons": "node build.js",
-    "build:types": "cd src/generated",
-    "build": "npm run build:icons && npm run build:types",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build": "npm run clean && npm run build:icons && npm run build:types",
     "readme": "node readme.js",
     "prepublishOnly": "npm run build && npm run readme"
+  },
+  "peerDependencies": {
+    "react": ">=16.8"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.13",
+    "typescript": "^5.9.3"
   },
   "keywords": [
     "react",
     "icons",
+    "icon-pack",
     "svg",
-    "components"
+    "phosphor",
+    "lucide",
+    "ui"
   ],
-  "peerDependencies": {
-    "react": ">=16.x"
+  "engines": {
+    "node": ">=18"
   },
-  "author": "Moamfar",
-  "license": "MIT"
+  "publishConfig": {
+    "access": "public"
+  }
 }
