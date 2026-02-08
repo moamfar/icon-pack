@@ -1,0 +1,14 @@
+src/
+node_modules/
+*.log
+*.tgz
+.DS_Store
+.vscode/
+.idea/
+coverage/
+*.config.js
+*.test.*
+*.spec.*
+tsconfig.json
+build.js
+readme.js

@@ -1,6 +1,6 @@
 {
   "name": "@moamfar/icon-pack",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A collection of beautiful, weight-adjustable SVG icons.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -16,38 +16,42 @@
       "import": "./dist/index.esm.js",
       "require": "./dist/index.js",
       "types": "./dist/index.d.ts"
-    },
-    "./*": "./dist/*"
+    }
   },
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "build:icons": "node build.js",
-    "build:js": "tsc ",
-    "build:types": "tsc ",
-    "build": "npm run build:icons && npm run build:js && npm run build:types",
+    "build": "node build.js",
     "readme": "node readme.js",
-    "prepublishOnly": "npm run build && npm run readme"
+    "prepublishOnly": "npm run build && npm run readme",
+    "clean": "rm -rf dist",
+    "test": "echo \"No tests specified\" && exit 0"
   },
   "keywords": [
     "react",
     "icons",
     "svg",
-    "components"
+    "components",
+    "ui",
+    "design-system",
+    "icon-pack"
   ],
   "peerDependencies": {
-    "react": ">=16.x"
+    "react": ">=16.8.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.13",
+    "typescript": "^5.9.3"
   },
   "author": "Moamfar",
   "license": "MIT",
-  "devDependencies": {
-    "@babel/cli": "^7.28.6",
-    "@babel/core": "^7.29.0",
-    "@babel/preset-env": "^7.29.0",
-    "@babel/preset-react": "^7.28.5",
-    "@babel/preset-typescript": "^7.28.5",
-    "@types/react": "^19.2.13",
-    "typescript": "^5.9.3"
-  }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moamfar/icon-pack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/moamfar/icon-pack/issues"
+  },
+  "homepage": "https://github.com/moamfar/icon-pack#readme"
 }
