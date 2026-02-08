@@ -1,7 +1,5 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
+var __importDefault = (this && this.__importDefault) || function (mod) { return (mod && mod.__esModule) ? mod : { "default": mod }; };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CheckSquare = void 0;
 const react_1 = __importDefault(require("react"));
@@ -36,23 +34,9 @@ const svgs = {
 </svg>
 `,
 };
-
 const CheckSquare = ({ size = 24, color = "currentColor", weight = "outline", className = "", style = {}, ...props }) => {
     const activeWeight = Object.keys(svgs).includes(weight) ? weight : Object.keys(svgs)[0];
-    
-    const svgProps = {
-        viewBox: "0 0 24 24",
-        width: size,
-        height: size,
-        fill: "currentColor",
-        stroke: "currentColor",
-        className: className,
-        style: { color, ...style },
-        ...props
-    };
-    
-    return (react_1.default.createElement("svg", svgProps,
-        react_1.default.createElement("g", { dangerouslySetInnerHTML: { __html: svgs[activeWeight] } })));
+    const svgProps = { viewBox: "0 0 24 24", width: size, height: size, fill: "currentColor", stroke: "currentColor", className, style: { color, ...style }, ...props };
+    return react_1.default.createElement("svg", svgProps, react_1.default.createElement("g", { dangerouslySetInnerHTML: { __html: svgs[activeWeight] } }));
 };
-
 exports.CheckSquare = CheckSquare;
