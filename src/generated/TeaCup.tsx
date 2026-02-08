@@ -49,7 +49,7 @@ const svgs = {
 `,
 };
 
-export const TeaCup: React.FC<IconProps> = ({ size = 24, color = "currentColor", weight, ...props }) => {
+export const TeaCup: React.FC<IconProps> = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
   // If weight is passed and exists, use it. Otherwise default to the first available weight.
   const activeWeight = Object.keys(svgs).includes(weight) ? weight : Object.keys(svgs)[0];
 
