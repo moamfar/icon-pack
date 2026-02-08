@@ -7,35 +7,49 @@ exports.ArrowLeftUp = void 0;
 const react_1 = __importDefault(require("react"));
 const svgs = {
   "bold": `
-<path d="M18.5303 17.4697C18.8232 17.7626 18.8232 18.2374 18.5303 18.5303C18.2374 18.8232 17.7626 18.8232 17.4697 18.5303L10.5 11.5607L6.53033 15.5303C6.31583 15.7448 5.99324 15.809 5.71299 15.6929C5.43273 15.5768 5.25 15.3033 5.25 15V6C5.25 5.58579 5.58579 5.25 6 5.25L15 5.25C15.3033 5.25 15.5768 5.43273 15.6929 5.71299C15.809 5.99324 15.7448 6.31583 15.5303 6.53033L11.5607 10.5L18.5303 17.4697Z"/>
+<path d="M18.5303 17.4697C18.8232 17.7626 18.8232 18.2374 18.5303 18.5303C18.2374 18.8232 17.7626 18.8232 17.4697 18.5303L10.5 11.5607L6.53033 15.5303C6.31583 15.7448 5.99324 15.809 5.71299 15.6929C5.43273 15.5768 5.25 15.3033 5.25 15V6C5.25 5.58579 5.58579 5.25 6 5.25L15 5.25C15.3033 5.25 15.5768 5.43273 15.6929 5.71299C15.809 5.99324 15.7448 6.31583 15.5303 6.53033L11.5607 10.5L18.5303 17.4697Z" fill="currentColor"/>
 </svg>
 `,
   "boldDuotone": `
-<path fill-rule="evenodd" clip-rule="evenodd" d="M6.53033 15.5303C6.31583 15.7448 5.99324 15.809 5.71299 15.6929C5.43273 15.5768 5.25 15.3033 5.25 15V6C5.25 5.58579 5.58579 5.25 6 5.25L15 5.25C15.3033 5.25 15.5768 5.43273 15.6929 5.71299C15.809 5.99324 15.7448 6.31583 15.5303 6.53033L6.53033 15.5303Z"/>
-<path opacity="0.5" d="M18.5303 17.4697C18.8232 17.7626 18.8232 18.2374 18.5303 18.5303C18.2374 18.8232 17.7626 18.8232 17.4697 18.5303L10.5 11.5607L11.5607 10.5L18.5303 17.4697Z"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6.53033 15.5303C6.31583 15.7448 5.99324 15.809 5.71299 15.6929C5.43273 15.5768 5.25 15.3033 5.25 15V6C5.25 5.58579 5.58579 5.25 6 5.25L15 5.25C15.3033 5.25 15.5768 5.43273 15.6929 5.71299C15.809 5.99324 15.7448 6.31583 15.5303 6.53033L6.53033 15.5303Z" fill="currentColor"/>
+<path opacity="0.5" d="M18.5303 17.4697C18.8232 17.7626 18.8232 18.2374 18.5303 18.5303C18.2374 18.8232 17.7626 18.8232 17.4697 18.5303L10.5 11.5607L11.5607 10.5L18.5303 17.4697Z" fill="currentColor" opacity="0.4"/>
 </svg>
 `,
   "broken": `
-<path d="M6 6H15M6 6V15M6 6L12.5 12.5M18 18L15.5 15.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M6 6H15M6 6V15M6 6L12.5 12.5M18 18L15.5 15.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
 `,
   "lineDuotone": `
-<path opacity="0.5" d="M17.4697 18.5303C17.7626 18.8232 18.2374 18.8232 18.5303 18.5303C18.8232 18.2374 18.8232 17.7626 18.5303 17.4697L17.4697 18.5303ZM18.5303 17.4697L6.53033 5.46967L5.46967 6.53033L17.4697 18.5303L18.5303 17.4697Z"/>
-<path d="M15 6H6V15" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path opacity="0.5" d="M17.4697 18.5303C17.7626 18.8232 18.2374 18.8232 18.5303 18.5303C18.8232 18.2374 18.8232 17.7626 18.5303 17.4697L17.4697 18.5303ZM18.5303 17.4697L6.53033 5.46967L5.46967 6.53033L17.4697 18.5303L18.5303 17.4697Z" fill="currentColor"/>
+<path d="M15 6H6V15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
 `,
   "linear": `
-<path d="M18 18L6 6M6 6H15M6 6V15" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M18 18L6 6M6 6H15M6 6V15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
 `,
   "outline": `
-<path fill-rule="evenodd" clip-rule="evenodd" d="M5.25 6C5.25 5.58579 5.58579 5.25 6 5.25H15C15.4142 5.25 15.75 5.58579 15.75 6C15.75 6.41421 15.4142 6.75 15 6.75H7.81066L18.5303 17.4697C18.8232 17.7626 18.8232 18.2374 18.5303 18.5303C18.2374 18.8232 17.7626 18.8232 17.4697 18.5303L6.75 7.81066V15C6.75 15.4142 6.41421 15.75 6 15.75C5.58579 15.75 5.25 15.4142 5.25 15V6Z"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M5.25 6C5.25 5.58579 5.58579 5.25 6 5.25H15C15.4142 5.25 15.75 5.58579 15.75 6C15.75 6.41421 15.4142 6.75 15 6.75H7.81066L18.5303 17.4697C18.8232 17.7626 18.8232 18.2374 18.5303 18.5303C18.2374 18.8232 17.7626 18.8232 17.4697 18.5303L6.75 7.81066V15C6.75 15.4142 6.41421 15.75 6 15.75C5.58579 15.75 5.25 15.4142 5.25 15V6Z" fill="currentColor"/>
 </svg>
 `,
 };
-const ArrowLeftUp = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+
+const ArrowLeftUp = ({ size = 24, color = "currentColor", weight = "outline", className = "", style = {}, ...props }) => {
     const activeWeight = Object.keys(svgs).includes(weight) ? weight : Object.keys(svgs)[0];
-    return (react_1.default.createElement("svg", Object.assign({ viewBox: "0 0 24 24", width: size, height: size, fill: color }, props),
+    
+    const svgProps = {
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size,
+        fill: "currentColor",
+        stroke: "currentColor",
+        className: className,
+        style: { color, ...style },
+        ...props
+    };
+    
+    return (react_1.default.createElement("svg", svgProps,
         react_1.default.createElement("g", { dangerouslySetInnerHTML: { __html: svgs[activeWeight] } })));
 };
+
 exports.ArrowLeftUp = ArrowLeftUp;
