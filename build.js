@@ -431,3 +431,11 @@ if (Array.from(categoryRegistry.keys())[0]) {
   const firstIconInCategory = categoryRegistry.get(firstCategory)?.[0]?.split("/")[1];
   console.log(`   import { ${firstIconInCategory} } from '@moamfar/icon-pack/${firstCategory}';`);
 }
+
+console.log("\n🧠 Generating IntelliSense files...");
+try {
+  require("./generate-enhanced-types.js");
+  console.log("✅ IntelliSense files generated successfully");
+} catch (error) {
+  console.error("❌ Failed to generate IntelliSense files:", error.message);
+}
