@@ -4,7 +4,7 @@ const path = require("path");
 /* ---------------- CONFIG ---------------- */
 
 const packageJsonPath = path.join(__dirname, "package.json");
-const generatedIndexPath = path.join(__dirname, "src", "generated", "index.ts");
+const generatedIndexPath = path.join(__dirname, "dist", "index.ts");
 const readmeOutputPath = path.join(__dirname, "README.md");
 const rawDir = path.join(__dirname, "src", "raw");
 

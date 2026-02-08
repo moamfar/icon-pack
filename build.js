@@ -4,7 +4,7 @@ const path = require("path");
 // --- CONFIGURATION ---
 const baseDir = path.join(__dirname, ".");
 const rawDir = path.join(baseDir, "src", "raw");
-const outputDir = path.join(baseDir, "src", "generated");
+const outputDir = path.join(baseDir, "dist");
 
 // --- UTILITIES ---
 
