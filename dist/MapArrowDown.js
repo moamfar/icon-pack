@@ -1,0 +1,27 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.MapArrowDown = void 0;
+const react_1 = __importDefault(require("react"));
+const svgs = {
+  "broken": `
+<path d="M16.5974 14L13.4725 21.0072C12.8822 22.3309 11.1178 22.3309 10.5275 21.0072L3.16496 4.49746C2.49789 3.00163 3.97914 1.45007 5.36689 2.19099L11.2706 5.34302C11.7298 5.58818 12.2702 5.58817 12.7294 5.34302L18.6331 2.19099C20.0209 1.45006 21.5021 3.00163 20.835 4.49746L18.7162 9.24873" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
+`,
+  "fill": `
+<path d="M3.16496 4.49747L10.5275 21.0072C11.1178 22.3309 12.8822 22.3309 13.4725 21.0072L20.835 4.49747C21.5021 3.00163 20.0209 1.45006 18.6331 2.19099L12.7294 5.34303C12.2702 5.58818 11.7298 5.58818 11.2706 5.34303L5.36689 2.19099C3.97914 1.45007 2.49789 3.00163 3.16496 4.49747Z"/>
+</svg>
+`,
+  "outline": `
+<path fill-rule="evenodd" clip-rule="evenodd" d="M21.0475 1.98744C21.701 2.67201 21.9876 3.75513 21.5204 4.80282L14.1579 21.3125C13.3032 23.229 10.6975 23.229 9.84285 21.3125L2.48035 4.80282C2.01313 3.75513 2.29971 2.67201 2.95325 1.98744C3.6123 1.2971 4.68853 0.978305 5.72049 1.52928L5.36726 2.19088L5.72049 1.52928L11.6242 4.68131L11.271 5.34291L11.6242 4.68131C11.8626 4.8086 12.1381 4.8086 12.3765 4.68131L18.2802 1.52928L18.6335 2.19088L18.2802 1.52928C19.3122 0.978304 20.3884 1.2971 21.0475 1.98744ZM18.9867 2.85249L18.6361 2.19572L18.9867 2.85249L13.083 6.00452C12.4031 6.36753 11.5976 6.36753 10.9177 6.00452L5.01402 2.85249C4.65823 2.66253 4.29996 2.74905 4.03821 3.02323C3.77096 3.30317 3.65045 3.74374 3.8503 4.19189L11.2128 20.7016C11.5388 21.4327 12.4619 21.4327 12.7879 20.7016L20.1504 4.19189C20.3503 3.74374 20.2298 3.30317 19.9625 3.02323C19.7008 2.74905 19.3425 2.66253 18.9867 2.85249Z"/>
+</svg>
+`,
+};
+const MapArrowDown = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+    const activeWeight = Object.keys(svgs).includes(weight) ? weight : Object.keys(svgs)[0];
+    return (react_1.default.createElement("svg", Object.assign({ viewBox: "0 0 24 24", width: size, height: size, fill: color }, props),
+        react_1.default.createElement("g", { dangerouslySetInnerHTML: { __html: svgs[activeWeight] } })));
+};
+exports.MapArrowDown = MapArrowDown;
