@@ -11,14 +11,14 @@ const outputDir = path.join(baseDir, "src", "generated");
 // 1. Convert strings to PascalCase (for Components)
 const toPascalCase = (str) => {
   // Remove spaces, underscores, hyphens
-  const cleaned = str.replace(/\s+/g, "").trim();
+  const cleaned = str.replace(/[^a-zA-Z0-9]+/g, "").trim();
   return cleaned;
 };
 
 // 2. Convert strings to camelCase (for Weights)
 // e.g., "Bold Duotone" -> "boldDuotone"
 const toCamelCase = (str) => {
-  const cleaned = str.replace(/\s+/g, "").trim();
+  const cleaned = str.replace(/[^a-zA-Z0-9]+/g, "").trim();
   return cleaned
     .replace(/\w\S*/g, (txt, index) => {
       if (index === 0) {
@@ -26,7 +26,7 @@ const toCamelCase = (str) => {
       }
       return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
     })
-    .replace(/\s+/g, "");
+    .replace(/[^a-zA-Z0-9]+/g, "");
 };
 
 // Helper to extract viewBox and inner HTML from an SVG string
@@ -166,7 +166,7 @@ const svgs = {
  ${weightMapString}
 };
 
-export const ${componentName}: React.FC<IconProps> = ({ size = 24, color = "currentColor", weight, ...props }) => {
+export const ${componentName}: React.FC<IconProps> = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
   // If weight is passed and exists, use it. Otherwise default to the first available weight.
   const activeWeight = Object.keys(svgs).includes(weight) ? weight : Object.keys(svgs)[0];
 
