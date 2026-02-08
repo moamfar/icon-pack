@@ -9,7 +9,7 @@ A collection of beautiful, weight-adjustable SVG icons.
 
 ## Features
 
-- **🎨 6 Different Weights:** Bold, Bold Duotone, Broken, Line Duotone, Linear, and Outline
+- **🎨 6 Different Weights:** Fill, Broken and Outline
 - **🌳 Tree-shakable:** Import only what you use
 - **✨ TypeScript Ready:** Full type definitions included
 - **⚡ Zero Dependencies:** Lightweight and fast
@@ -35,9 +35,9 @@ import { Heart, Star, User } from "@moamfar/icon-pack";
 function App() {
   return (
     <div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
-      <Heart size={32} color="red" weight="bold" />
+      <Heart size={32} color="red" weight="broken" />
       <Star size={24} color="gold" />
-      <User size={48} color="#4f46e5" weight="linear" />
+      <User size={48} color="#4f46e5" weight="fill" />
     </div>
   );
 }
@@ -49,7 +49,7 @@ function App() {
 |------|------|---------|-------------|
 | `size` | `number` | `24` | Icon width and height |
 | `color` | `string` | `"currentColor"` | Fill color |
-| `weight` | `string` | `"outline"` | Style variant (bold, linear, outline, etc.) |
+| `weight` | `string` | `"outline"` | Style variant (fill, broken, outline, etc.) |
 | `...props` | `SVGProps` | - | Standard SVG attributes |
 
 ## Available Icons
@@ -79,11 +79,8 @@ There are **1235** icons available:
 Each icon comes in multiple styles:
 
 - **Outline** - Thin line icons
-- **Bold** - Thick filled icons  
-- **Linear** - Single weight line icons
+- **Fill** - Thick filled icons  
 - **Broken** - Dashed/stroke icons
-- **Bold Duotone** - Two-tone filled icons
-- **Line Duotone** - Two-tone line icons
 
 ## License
 
