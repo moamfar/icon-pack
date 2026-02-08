@@ -23,10 +23,10 @@
   },
   "scripts": {
     "build": "node build.js",
+    "build:intellisense": "node generate-enhanced-types.js",
     "readme": "node readme.js",
-    "prepublishOnly": "npm run build && npm run readme",
-    "clean": "rm -rf dist",
-    "test": "echo \"No tests specified\" && exit 0"
+    "prepublishOnly": "npm run build && npm run build:intellisense && npm run readme",
+    "clean": "rm -rf dist"
   },
   "keywords": [
     "react",

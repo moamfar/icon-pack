@@ -1,6 +1,7 @@
 # Build scripts (should not be in final package)
 build.js
 readme.js
+generate-enhanced-types.js
 
 # TypeScript config (optional)
 tsconfig.json
