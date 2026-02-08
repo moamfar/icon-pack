@@ -1,0 +1,35 @@
+{
+  "name": "@moamfar/icon-pack",
+  "version": "1.0.1",
+  "description": "A collection of beautiful, weight-adjustable SVG icons.",
+  "main": "./src/generated/index.js",
+  "module": "./src/generated/index.js",
+  "types": "./src/generated/index.d.ts",
+  "sideEffects": false,
+  "files": [
+    "src/generated",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build:icons": "node build.js",
+    "build:types": "cd src/generated",
+    "build": "npm run build:icons && npm run build:types",
+    "readme": "node readme.js",
+    "prepublishOnly": "npm run build && npm run readme"
+  },
+  "keywords": [
+    "react",
+    "icons",
+    "svg",
+    "components"
+  ],
+  "peerDependencies": {
+    "react": ">=16.x"
+  },
+  "author": "Moamfar",
+  "license": "MIT"
+}
