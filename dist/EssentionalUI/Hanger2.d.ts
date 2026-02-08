@@ -1,0 +1,4 @@
+import * as React from "react";
+import { IconProps } from "../types";
+
+export declare const Hanger2: React.FC<IconProps>;

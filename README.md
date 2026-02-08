@@ -54,7 +54,7 @@ function App() {
 
 ## Available Icons
 
-There are **1235** icons available:
+There are **1246** icons available:
 
 | Icon | Name | Icon | Name |
 |------|------|------|------|
@@ -69,10 +69,10 @@ There are **1235** icons available:
 | `AirbudsRight` | AirbudsRight | `Alarm` | Alarm |
 | `AlarmAdd` | AlarmAdd | `AlarmPause` | AlarmPause |
 
-**... and 1215 more icons**
+**... and 1226 more icons**
 
 
-[View all 1235 icons →](https://github.com/moamfar/icon-pack)
+[View all 1246 icons →](https://github.com/moamfar/icon-pack)
 
 ## Weight Variants
 
