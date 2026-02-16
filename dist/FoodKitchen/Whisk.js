@@ -36,9 +36,15 @@ const Whisk = ({ size = 24, color = "currentColor", weight = "outline", ...props
         react_1.default.createElement(
             "svg",
             Object.assign(
-                { viewBox: "0 0 24 24", width: size, height: size, color: color },
-                props
-            ),
+      {
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size,
+        color: color,      
+        fill: "none"      
+      },
+      props
+    ),
             react_1.default.createElement("g", {
                 dangerouslySetInnerHTML: { __html: svgs[activeWeight] }
             })
