@@ -37,17 +37,6 @@ const svgs = {
 <path fill-rule="evenodd" clip-rule="evenodd" d="M3.46447 3.46447C2 4.92893 2 7.28595 2 12L2.00001 12.2498C2.09277 12.2498 2.1871 12.2671 2.2785 12.3036L6.99997 14.1918L9.8645 13.046C11.2354 12.4977 12.7646 12.4977 14.1355 13.046L17 14.1918L21.7215 12.3036C21.8129 12.2671 21.9072 12.2498 22 12.2498L22 12C22 7.28595 22 4.92893 20.5355 3.46447C19.0711 2 16.714 2 12 2C7.28595 2 4.92893 2 3.46447 3.46447ZM10 10.5C10 11.3284 9.55228 12 9 12C8.44772 12 8 11.3284 8 10.5C8 9.67157 8.44772 9 9 9C9.55228 9 10 9.67157 10 10.5ZM15 12C15.5523 12 16 11.3284 16 10.5C16 9.67157 15.5523 9 15 9C14.4477 9 14 9.67157 14 10.5C14 11.3284 14.4477 12 15 12Z" fill="currentColor"/>
 </svg>
 `,
-  "lineduotone": `
-<path opacity="0.5" d="M2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C22 4.92893 22 7.28595 22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12Z" stroke="currentColor" stroke-width="1.5"/>
-<ellipse cx="15" cy="10.5" rx="1" ry="1.5" fill="currentColor"/>
-<ellipse cx="9" cy="10.5" rx="1" ry="1.5" fill="currentColor"/>
-<path d="M16.5 21.5001L17 15.0001L13.857 13.7429C12.6649 13.266 11.3351 13.266 10.143 13.7429L7 15.0001L7.5 21.5001" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-<path d="M7 15L2.5 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-<path d="M7 19L3.5 20.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-<path d="M17 15L21.5 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-<path d="M17 19L20.5 20.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-</svg>
-`,
   "outline": `
 <path d="M16 10.5C16 11.3284 15.5523 12 15 12C14.4477 12 14 11.3284 14 10.5C14 9.67157 14.4477 9 15 9C15.5523 9 16 9.67157 16 10.5Z" fill="currentColor"/>
 <path d="M10 10.5C10 11.3284 9.55229 12 9 12C8.44772 12 8 11.3284 8 10.5C8 9.67157 8.44772 9 9 9C9.55229 9 10 9.67157 10 10.5Z" fill="currentColor"/>

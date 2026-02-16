@@ -34,17 +34,6 @@ const svgs = {
 <path d="M3.53033 5.46967C3.23744 5.17678 2.76256 5.17678 2.46967 5.46967C2.17678 5.76256 2.17678 6.23744 2.46967 6.53033L3.96967 8.03033C4.26256 8.32322 4.73744 8.32322 5.03033 8.03033C5.32322 7.73744 5.32322 7.26256 5.03033 6.96967L3.53033 5.46967Z" fill="currentColor"/>
 </svg>
 `,
-  "lineduotone": `
-<path opacity="0.5" d="M20 22V16C20 11.5817 16.4183 8 12 8C7.58172 8 4 11.5817 4 16V22" stroke="currentColor" stroke-width="1.5"/>
-<path d="M14.2905 11.5C15.2932 11.9059 16.0939 12.7065 16.4998 13.7092" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-<path d="M2 22H22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-<path d="M12 2V5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-<path d="M21 6L19.5 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-<path d="M3 6L4.5 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-<path d="M13.5 17.5C13.5 18.3284 12.8284 19 12 19C11.1716 19 10.5 18.3284 10.5 17.5C10.5 16.6716 11.1716 16 12 16C12.8284 16 13.5 16.6716 13.5 17.5Z" stroke="currentColor" stroke-width="1.5"/>
-<path opacity="0.5" d="M12 19V22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-</svg>
-`,
   "outline": `
 <path d="M12.75 2C12.75 1.58579 12.4142 1.25 12 1.25C11.5858 1.25 11.25 1.58579 11.25 2V5C11.25 5.41421 11.5858 5.75 12 5.75C12.4142 5.75 12.75 5.41421 12.75 5V2Z" fill="currentColor"/>
 <path d="M14.5719 10.8048C14.188 10.6494 13.7507 10.8346 13.5953 11.2186C13.4399 11.6025 13.6252 12.0398 14.0091 12.1952C14.8235 12.5249 15.4749 13.1762 15.8046 13.9907C15.96 14.3746 16.3972 14.5599 16.7812 14.4044C17.1651 14.249 17.3504 13.8118 17.195 13.4278C16.7129 12.2369 15.7629 11.2869 14.5719 10.8048Z" fill="currentColor"/>

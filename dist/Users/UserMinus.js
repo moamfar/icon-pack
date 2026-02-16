@@ -24,13 +24,6 @@ const svgs = {
 <circle cx="12" cy="6" r="4" fill="currentColor"/>
 </svg>
 `,
-  "lineduotone": `
-<circle cx="12" cy="6" r="4" stroke="currentColor" stroke-width="1.5"/>
-<path opacity="0.5" d="M15 13.3271C14.0736 13.1162 13.0609 13 12 13C7.58172 13 4 15.0147 4 17.5C4 19.9853 4 22 12 22C17.6874 22 19.3315 20.9817 19.8068 19.5" stroke="currentColor" stroke-width="1.5"/>
-<circle cx="18" cy="16" r="4" stroke="currentColor" stroke-width="1.5"/>
-<path d="M17 16H19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-`,
   "outline": `
 <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0001 1.25C9.37678 1.25 7.25013 3.37665 7.25013 6C7.25013 8.62335 9.37678 10.75 12.0001 10.75C14.6235 10.75 16.7501 8.62335 16.7501 6C16.7501 3.37665 14.6235 1.25 12.0001 1.25ZM8.75013 6C8.75013 4.20507 10.2052 2.75 12.0001 2.75C13.7951 2.75 15.2501 4.20507 15.2501 6C15.2501 7.79493 13.7951 9.25 12.0001 9.25C10.2052 9.25 8.75013 7.79493 8.75013 6Z" fill="currentColor"/>
 <path d="M17.0001 15.25C16.5859 15.25 16.2501 15.5858 16.2501 16C16.2501 16.4142 16.5859 16.75 17.0001 16.75H19.0001C19.4143 16.75 19.7501 16.4142 19.7501 16C19.7501 15.5858 19.4143 15.25 19.0001 15.25H17.0001Z" fill="currentColor"/>

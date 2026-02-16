@@ -36,18 +36,6 @@ const svgs = {
 <path fill-rule="evenodd" clip-rule="evenodd" d="M12 1.25C12.4142 1.25 12.75 1.58579 12.75 2V3C12.75 3.41421 12.4142 3.75 12 3.75C11.5858 3.75 11.25 3.41421 11.25 3V2C11.25 1.58579 11.5858 1.25 12 1.25ZM4.39861 4.39861C4.6915 4.10572 5.16638 4.10572 5.45927 4.39861L5.85211 4.79145C6.145 5.08434 6.145 5.55921 5.85211 5.85211C5.55921 6.145 5.08434 6.145 4.79145 5.85211L4.39861 5.45927C4.10572 5.16638 4.10572 4.6915 4.39861 4.39861ZM19.6011 4.39887C19.894 4.69176 19.894 5.16664 19.6011 5.45953L19.2083 5.85237C18.9154 6.14526 18.4405 6.14526 18.1476 5.85237C17.8547 5.55947 17.8547 5.0846 18.1476 4.79171L18.5405 4.39887C18.8334 4.10598 19.3082 4.10598 19.6011 4.39887ZM1.25 12C1.25 11.5858 1.58579 11.25 2 11.25H3C3.41421 11.25 3.75 11.5858 3.75 12C3.75 12.4142 3.41421 12.75 3 12.75H2C1.58579 12.75 1.25 12.4142 1.25 12ZM20.25 12C20.25 11.5858 20.5858 11.25 21 11.25H22C22.4142 11.25 22.75 11.5858 22.75 12C22.75 12.4142 22.4142 12.75 22 12.75H21C20.5858 12.75 20.25 12.4142 20.25 12Z" fill="currentColor"/>
 </svg>
 `,
-  "lineduotone": `
-<path d="M8 22H16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path opacity="0.5" d="M5 19H19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M2 16H22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path opacity="0.5" d="M12 6C8.68629 6 6 8.68629 6 12C6 13.5217 6.56645 14.911 7.5 15.9687H16.5C17.4335 14.911 18 13.5217 18 12C18 8.68629 15.3137 6 12 6Z" stroke="currentColor" stroke-width="1.5"/>
-<path opacity="0.5" d="M12 2V3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-<path opacity="0.5" d="M22 12L21 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-<path opacity="0.5" d="M3 12L2 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-<path opacity="0.5" d="M19.0703 4.92969L18.6775 5.32252" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-<path opacity="0.5" d="M5.32227 5.32227L4.92943 4.92943" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-</svg>
-`,
   "outline": `
 <path d="M8 22H16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M5 19H19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>

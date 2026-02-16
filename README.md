@@ -11,7 +11,7 @@ A collection of beautiful, weight-adjustable SVG icons.
 
 ## ✨ Features
 
-- **🎨 5 Style Weights:** Outline, Fill, Broken, Duotone, Line-Duotone
+- **🎨 4 Style Weights:** Outline, Fill, Broken, Duotone
 - **🌳 Tree-shakable:** Import only what you use
 - **🧠 Fully Typed:** TypeScript definitions included
 - **⚡ Zero Dependencies:** Lightweight and fast
@@ -57,7 +57,7 @@ function App() {
 |------|------|---------|-------------|
 | `size` | `number` | `24` | Width & height of the icon |
 | `color` | `string` | `"currentColor"` | Stroke / fill color |
-| `weight` | `"fill" | "broken" | "outline" | "duotone" | "line-duotone"` | `"outline"` | Icon style variant |
+| `weight` | `"fill" | "broken" | "outline" | "duotone" ` | `"outline"` | Icon style variant |
 | `...props` | `SVGProps<SVGSVGElement>` | — | Standard SVG props |
 
 ---
@@ -70,7 +70,6 @@ Each icon includes:
 - **Fill** — Solid filled style
 - **Broken** — Stylized stroke design
 - **Duotone** — Two-layer tone styling
-- **Line-Duotone** — Stroke-based duotone style
 
 ---
 
