@@ -12,3 +12,5 @@ coverage/
 tsconfig.json
 build.js
 readme.js
+dist/svgs
+dist/icon-explorer.html
