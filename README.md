@@ -75,25 +75,11 @@ Each icon includes:
 
 ## 🗂 Available Icons
 
-There are **1246** icons available:
+There are **0** icons available:
 
-| Icon | Name | Icon | Name |
-|------|------|------|------|
-| `Accessibility` | Accessibility | `Accumulator` | Accumulator |
-| `AddCircle` | AddCircle | `AddFolder` | AddFolder |
-| `AddSquare` | AddSquare | `AdhesivePlaster` | AdhesivePlaster |
-| `AdhesivePlaster2` | AdhesivePlaster2 | `Airbuds` | Airbuds |
-| `AirbudsCase` | AirbudsCase | `AirbudsCaseCharge` | AirbudsCaseCharge |
-| `AirbudsCaseMinimalistic` | AirbudsCaseMinimalistic | `AirbudsCaseOpen` | AirbudsCaseOpen |
-| `AirbudsCharge` | AirbudsCharge | `AirbudsCheck` | AirbudsCheck |
-| `AirbudsLeft` | AirbudsLeft | `AirbudsRemove` | AirbudsRemove |
-| `AirbudsRight` | AirbudsRight | `Alarm` | Alarm |
-| `AlarmAdd` | AlarmAdd | `AlarmPause` | AlarmPause |
-
-**... and 1226 more icons**
+No icons found.
 
 
-[View all 1246 icons →](https://github.com/moamfar/icon-pack/blob/main/ICONS.txt)
 
 ---
 
