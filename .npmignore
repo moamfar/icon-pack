@@ -12,6 +12,8 @@ coverage/
 tsconfig.json
 build.js
 readme.js
+generate-enhanced-types.js
+generate-icons-html.js
 dist/svgs
 svgs
 dist/icon-explorer.html

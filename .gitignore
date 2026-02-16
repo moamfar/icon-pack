@@ -2,6 +2,7 @@
 build.js
 readme.js
 generate-enhanced-types.js
+generate-icons-html.js
 
 # TypeScript config (optional)
 tsconfig.json

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Icon Pack - All Icons & Weights</title>
     <style>
         * {
@@ -16,69 +16,105 @@
             background: #f9fafb;
             color: #111827;
             line-height: 1.5;
+            overflow-x: hidden;
+            width: 100%;
         }
 
         .header {
             background: white;
             border-bottom: 1px solid #e5e7eb;
-            padding: 1.5rem 2rem;
+            padding: 1rem 2rem;
             position: sticky;
             top: 0;
             z-index: 40;
             backdrop-filter: blur(8px);
             background: rgba(255, 255, 255, 0.9);
+            width: 100%;
         }
 
         .header-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
             gap: 1rem;
+            flex-wrap: wrap;
         }
 
         .header h1 {
-            font-size: 2rem;
+            font-size: 1.75rem;
             font-weight: 600;
             background: linear-gradient(135deg, #4f46e5, #7c3aed);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            white-space: nowrap;
         }
 
-        .stats {
+        .header-stats {
             display: flex;
             gap: 1rem;
             color: #6b7280;
-            font-size: 0.95rem;
-            flex-wrap: wrap;
+            font-size: 0.875rem;
+            margin-left: auto;
         }
 
-        .stat-item {
+        .header-stats .stat-item {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.25rem;
             background: #f3f4f6;
-            padding: 0.5rem 1rem;
+            padding: 0.35rem 0.75rem;
             border-radius: 30px;
+            white-space: nowrap;
         }
 
-        .stat-icon {
-            font-size: 1.25rem;
+        .header-stats .stat-icon {
+            font-size: 1rem;
+        }
+
+        .npm-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #cb3837;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.2s;
+            box-shadow: 0 2px 4px rgba(203, 56, 55, 0.2);
+            flex-shrink: 0;
+        }
+
+        .npm-button:hover {
+            background: #b52b2a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(203, 56, 55, 0.3);
+        }
+
+        .npm-button img {
+            width: 20px;
+            height: 20px;
+            filter: brightness(0) invert(1);
+        }
+
+        .npm-button span {
+            display: none;
         }
 
         .search-container {
-            max-width: 600px;
-            margin: 0 auto;
+            max-width: 500px;
+            margin: 0.75rem auto 0.5rem;
             position: relative;
+            width: 100%;
         }
 
         .search-box {
             width: 100%;
-            padding: 1rem 1rem 1rem 3rem;
+            padding: 0.75rem 1rem 0.75rem 2.75rem;
             border: 2px solid #e5e7eb;
             border-radius: 40px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             transition: all 0.2s;
             background: white;
             box-shadow: 0 2px 4px rgba(0,0,0,0.02);
@@ -96,7 +132,7 @@
             top: 50%;
             transform: translateY(-50%);
             color: #9ca3af;
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             pointer-events: none;
         }
 
@@ -108,7 +144,7 @@
             background: none;
             border: none;
             color: #9ca3af;
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             cursor: pointer;
             padding: 0.25rem;
             display: none;
@@ -128,80 +164,60 @@
             display: flex;
         }
 
-        .filter-bar {
-            max-width: 1400px;
-            margin: 1.5rem auto 0;
-            padding: 0 2rem;
+        .weight-tabs {
             display: flex;
-            gap: 1rem;
+            gap: 0.4rem;
+            margin: 0.5rem 0 0.25rem;
             flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
+            justify-content: center;
+            width: 100%;
         }
 
-        .weight-filter {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            background: white;
-            padding: 0.5rem;
-            border-radius: 40px;
-            border: 1px solid #e5e7eb;
-        }
-
-        .weight-label {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
+        .weight-tab {
+            padding: 0.4rem 1rem;
             border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
             cursor: pointer;
             transition: all 0.2s;
-            background: #f9fafb;
-            font-size: 0.875rem;
-            font-weight: 500;
+            background: white;
+            border: 1px solid #e5e7eb;
+            color: #4b5563;
+            white-space: nowrap;
         }
 
-        .weight-label:hover {
+        .weight-tab:hover {
             background: #f3f4f6;
+            border-color: #d1d5db;
         }
 
-        .weight-label input {
-            margin-right: 0.25rem;
-            accent-color: #4f46e5;
-            width: 16px;
-            height: 16px;
-        }
-
-        .results-count {
-            color: #6b7280;
-            font-size: 0.875rem;
-            background: #f3f4f6;
-            padding: 0.5rem 1rem;
-            border-radius: 30px;
+        .weight-tab.active {
+            background: #4f46e5;
+            border-color: #4f46e5;
+            color: white;
         }
 
         .categories-sidebar {
             position: fixed;
             left: 0;
-            top: 200px;
+            top: 135px;
             bottom: 0;
-            width: 280px;
+            width: 260px;
             background: white;
             border-right: 1px solid #e5e7eb;
-            padding: 1.5rem;
+            padding: 1.5rem 1rem;
             overflow-y: auto;
             transition: transform 0.3s ease;
         }
 
         .categories-sidebar h3 {
-            font-size: 0.875rem;
+            font-size: 0.8rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             color: #6b7280;
             margin-bottom: 1rem;
-            padding-left: 0.75rem;
+            padding-left: 0.5rem;
         }
 
         .category-list {
@@ -209,16 +225,16 @@
         }
 
         .category-item {
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.2rem;
         }
 
         .category-link {
             display: block;
-            padding: 0.625rem 0.75rem;
+            padding: 0.5rem 0.75rem;
             border-radius: 8px;
             color: #374151;
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: all 0.2s;
             cursor: pointer;
             border-left: 3px solid transparent;
@@ -239,7 +255,7 @@
         .category-count {
             float: right;
             color: #9ca3af;
-            font-size: 0.875rem;
+            font-size: 0.8rem;
         }
 
         .category-link.active .category-count {
@@ -247,26 +263,29 @@
         }
 
         .main-content {
-            margin-left: 280px;
-            padding: 2rem;
+            margin-left: 260px;
+            padding: 1.5rem 2rem;
+            width: calc(100% - 260px);
         }
 
         .icons-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
             gap: 1rem;
-            margin-top: 2rem;
+            margin-top: 1.5rem;
+            width: 100%;
         }
 
         .icon-card {
             background: white;
             border: 1px solid #e5e7eb;
             border-radius: 12px;
-            padding: 1rem;
+            padding: 1rem 0.75rem;
             transition: all 0.2s;
             position: relative;
             overflow: hidden;
             cursor: pointer;
+            width: 100%;
         }
 
         .icon-card:hover {
@@ -279,16 +298,16 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 80px;
+            min-height: 70px;
             padding: 0.5rem;
             background: white;
             border-radius: 8px;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
         }
 
         .icon-preview img {
-            width: 32px;
-            height: 32px;
+            width: 28px;
+            height: 28px;
             transition: transform 0.2s;
             display: block;
             object-fit: contain;
@@ -304,42 +323,42 @@
 
         .icon-name {
             font-weight: 600;
-            font-size: 0.875rem;
+            font-size: 0.8rem;
             color: #111827;
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.2rem;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
 
         .icon-category {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: #6b7280;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
             background: #f3f4f6;
             display: inline-block;
-            padding: 0.125rem 0.5rem;
+            padding: 0.1rem 0.4rem;
             border-radius: 12px;
         }
 
         .icon-weights {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.25rem;
+            gap: 0.2rem;
             justify-content: center;
-            margin-top: 0.5rem;
+            margin-top: 0.4rem;
         }
 
         .weight-badge {
             display: inline-flex;
             align-items: center;
-            padding: 0.25rem 0.5rem;
+            padding: 0.15rem 0.4rem;
             background: #f3f4f6;
             border-radius: 4px;
-            font-size: 0.625rem;
+            font-size: 0.55rem;
             font-weight: 500;
             color: #4b5563;
             transition: all 0.2s;
@@ -347,31 +366,33 @@
         }
 
         .category-section {
-            margin-bottom: 3rem;
-            scroll-margin-top: 200px;
+            margin-bottom: 2.5rem;
+            scroll-margin-top: 135px;
+            width: 100%;
         }
 
         .category-title {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: 600;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.4rem;
             border-bottom: 2px solid #e5e7eb;
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.75rem;
             position: sticky;
-            top: 200px;
+            top: 135px;
             background: #f9fafb;
             z-index: 30;
             padding-top: 0.5rem;
+            width: 100%;
         }
 
         .category-title span {
             background: #f3f4f6;
-            padding: 0.25rem 0.75rem;
+            padding: 0.2rem 0.6rem;
             border-radius: 20px;
-            font-size: 0.875rem;
+            font-size: 0.8rem;
             color: #4b5563;
         }
 
@@ -380,34 +401,35 @@
             justify-content: center;
             align-items: center;
             min-height: 400px;
-            font-size: 1.125rem;
+            font-size: 1rem;
             color: #6b7280;
         }
 
         .no-results {
             text-align: center;
-            padding: 4rem;
+            padding: 3rem;
             color: #6b7280;
             grid-column: 1 / -1;
             background: white;
             border-radius: 12px;
             border: 2px dashed #e5e7eb;
+            width: 100%;
         }
 
         .no-results p {
-            margin-top: 1rem;
-            font-size: 1.125rem;
+            margin-top: 0.75rem;
+            font-size: 1rem;
         }
 
         .copy-tooltip {
             position: absolute;
-            top: 0.5rem;
-            right: 0.5rem;
-            padding: 0.25rem 0.5rem;
+            top: 0.35rem;
+            right: 0.35rem;
+            padding: 0.2rem 0.4rem;
             background: #1f2937;
             color: white;
             border-radius: 4px;
-            font-size: 0.75rem;
+            font-size: 0.65rem;
             opacity: 0;
             transition: opacity 0.2s;
             pointer-events: none;
@@ -437,9 +459,9 @@
 
         .modal-content {
             background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            max-width: 600px;
+            border-radius: 16px;
+            padding: 1.5rem;
+            max-width: 550px;
             width: 90%;
             max-height: 80vh;
             overflow-y: auto;
@@ -450,13 +472,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
             border-bottom: 1px solid #e5e7eb;
         }
 
         .modal-header h2 {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: 600;
             color: #111827;
         }
@@ -467,8 +489,8 @@
             font-size: 1.5rem;
             cursor: pointer;
             color: #6b7280;
-            width: 32px;
-            height: 32px;
+            width: 30px;
+            height: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -483,16 +505,16 @@
 
         .weight-showcase {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 0.75rem;
+            margin-top: 0.75rem;
         }
 
         .weight-item {
             text-align: center;
-            padding: 1rem;
+            padding: 0.75rem 0.5rem;
             background: #f9fafb;
-            border-radius: 12px;
+            border-radius: 10px;
             transition: all 0.2s;
             border: 1px solid #e5e7eb;
             display: flex;
@@ -507,109 +529,211 @@
         }
 
         .weight-item img {
-            width: 40px;
-            height: 40px;
-            margin-bottom: 0.5rem;
+            width: 32px;
+            height: 32px;
+            margin-bottom: 0.4rem;
             object-fit: contain;
         }
 
         .weight-name {
-            font-size: 0.875rem;
+            font-size: 0.75rem;
             font-weight: 500;
             color: #4b5563;
             text-transform: capitalize;
         }
 
         .import-code {
-            margin-top: 2rem;
-            padding: 1.5rem;
+            margin-top: 1.5rem;
+            padding: 1rem;
             background: #f3f4f6;
-            border-radius: 12px;
+            border-radius: 10px;
             border: 1px solid #e5e7eb;
         }
 
         .import-code h3 {
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 600;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
             color: #374151;
         }
 
         .import-code code {
             display: block;
-            padding: 1rem;
+            padding: 0.75rem;
             background: #1f2937;
             color: #e5e7eb;
             border-radius: 8px;
             font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', monospace;
-            font-size: 0.875rem;
+            font-size: 0.8rem;
             overflow-x: auto;
         }
 
+        /* Sidebar overlay for mobile */
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 90;
+            backdrop-filter: blur(2px);
+        }
+
+        .sidebar-overlay.active {
+            display: block;
+        }
+
+        /* Mobile styles */
         @media (max-width: 1024px) {
+            body {
+                overflow-x: hidden;
+                width: 100%;
+            }
+            
+            .header {
+                padding: 0.75rem 1rem;
+                width: 100%;
+            }
+            
+            .header-stats {
+                display: none;
+            }
+            
+            .header h1 {
+                font-size: 1.25rem;
+            }
+            
+            .npm-button {
+                width: 36px;
+                height: 36px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .npm-button span {
+                display: none;
+            }
+            
+            .search-container {
+                max-width: 100%;
+                margin: 0.5rem auto;
+            }
+            
+            .weight-tabs {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                padding-bottom: 0.5rem;
+                margin-bottom: 0;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: thin;
+                justify-content: flex-start;
+            }
+            
+            .weight-tabs::-webkit-scrollbar {
+                height: 3px;
+            }
+            
+            .weight-tabs::-webkit-scrollbar-track {
+                background: #f1f1f1;
+                border-radius: 10px;
+            }
+            
+            .weight-tabs::-webkit-scrollbar-thumb {
+                background: #4f46e5;
+                border-radius: 10px;
+            }
+            
+            .weight-tab {
+                flex: 0 0 auto;
+            }
+            
             .categories-sidebar {
                 transform: translateX(-100%);
                 z-index: 100;
                 top: 0;
-                padding-top: 5rem;
+                padding-top: 1rem;
+                box-shadow: none;
+                width: 280px;
+                height: 100vh;
+                position: fixed;
             }
             
             .categories-sidebar.open {
                 transform: translateX(0);
-                box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+                box-shadow: 2px 0 20px rgba(0,0,0,0.2);
             }
             
             .main-content {
                 margin-left: 0;
+                padding: 1rem;
+                width: 100%;
             }
-
+            
+            .icons-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: 0.75rem;
+                width: 100%;
+            }
+            
             .category-title {
-                top: 180px;
+                top: 110px;
+                font-size: 1.1rem;
+                width: 100%;
+            }
+            
+            .sidebar-toggle {
+                display: block !important;
+                position: fixed;
+                bottom: 20px;
+                left: 20px;
+                z-index: 50;
             }
         }
 
-        @media (max-width: 640px) {
-            .header {
-                padding: 1rem;
+        @media (max-width: 480px) {
+            .icons-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
             
-            .stats {
-                width: 100%;
-                justify-content: center;
+            .icon-card {
+                padding: 0.75rem 0.5rem;
             }
             
-            .filter-bar {
-                flex-direction: column;
-                align-items: stretch;
+            .icon-preview {
+                min-height: 60px;
             }
             
-            .weight-filter {
-                justify-content: center;
-            }
-            
-            .results-count {
-                text-align: center;
+            .icon-preview img {
+                width: 24px;
+                height: 24px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Sidebar overlay for mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+
     <div class="header">
         <div class="header-top">
-            <h1>🎨 Icon Pack Explorer</h1>
-            <div class="stats" id="stats"></div>
+            <h1>🎨 Icon Pack</h1>
+            <div class="header-stats" id="headerStats"></div>
+            <a href="https://www.npmjs.com/package/@moamfar/icon-pack" target="_blank" class="npm-button" title="@moamfar/icon-pack">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/npm.svg" alt="npm">
+                <span>@moamfar/icon-pack</span>
+            </a>
         </div>
         
         <div class="search-container">
             <span class="search-icon">🔍</span>
-            <input type="text" class="search-box" placeholder="Search icons by name, category, or weight..." id="search" autocomplete="off">
+            <input type="text" class="search-box" placeholder="Search icons by name or category..." id="search" autocomplete="off">
             <button class="search-clear" id="clearSearch" onclick="clearSearch()">✕</button>
         </div>
 
-        <div class="filter-bar">
-            <div class="weight-filter" id="weightFilters"></div>
-            <div class="results-count" id="resultsCount">Showing <span id="visibleCount">0</span> of <span id="totalCount">0</span> icons</div>
-        </div>
+        <div class="weight-tabs" id="weightTabs"></div>
     </div>
 
     <div class="categories-sidebar" id="sidebar">
@@ -40289,6 +40413,7 @@
 ];
         const WEIGHTS = ["Broken","Duotone","Fill","Outline"];
         const CATEGORIES = ["Arrows","Arrows Action","Astronomy","Building, Infrastructure","Business, Statistic","Call","Design, Tools","Electronic, Devices","Essentional, UI","Faces, Emotions, Stickers","Files","Folders","Food, Kitchen","Hands","Home, Furniture","Like","List","Map & Location","Medicine","Messages, Conversation","Money","Nature, Travel","Network, IT, Programming","Notes","Notifications","School","Search","Security","Settings, Fine Tuning","Shopping, Ecommerce","Sports","Text Formatting","Time","Transport, Parts, Service","Users","Video, Audio, Sound","Weather"];
+        const WEIGHT_PRIORITY = ["outline","fill","duotone","broken"];
 
         // State management
         let state = {
@@ -40296,22 +40421,37 @@
             filteredIcons: [],
             categories: CATEGORIES,
             weights: WEIGHTS,
-            selectedWeights: new Set(),
+            selectedWeight: WEIGHT_PRIORITY[0] || WEIGHTS[0] || 'outline',
             searchQuery: '',
             activeCategory: 'all'
         };
 
-        // Initialize with all weights selected
-        state.weights.forEach(w => state.selectedWeights.add(w));
-
-        // Update statistics
+        // Update statistics in header
         function updateStats() {
-            const statsEl = document.getElementById('stats');
+            const statsEl = document.getElementById('headerStats');
             statsEl.innerHTML = `
-                <div class="stat-item"><span class="stat-icon">📦</span> ${state.icons.length} Icons</div>
-                <div class="stat-item"><span class="stat-icon">⚖️</span> ${state.weights.length} Weights</div>
-                <div class="stat-item"><span class="stat-icon">📁</span> ${state.categories.length} Categories</div>
+                <div class="stat-item"><span class="stat-icon">📦</span> ${state.icons.length}</div>
+                <div class="stat-item"><span class="stat-icon">⚖️</span> ${state.weights.length}</div>
+                <div class="stat-item"><span class="stat-icon">📁</span> ${state.categories.length}</div>
             `;
+        }
+
+        // Render weight tabs
+        function renderWeightTabs() {
+            const container = document.getElementById('weightTabs');
+            container.innerHTML = state.weights.map(weight => `
+                <button class="weight-tab ${state.selectedWeight === weight ? 'active' : ''}" 
+                        onclick="setSelectedWeight('${weight}')">
+                    ${weight}
+                </button>
+            `).join('');
+        }
+
+        // Set selected weight
+        function setSelectedWeight(weight) {
+            state.selectedWeight = weight;
+            renderWeightTabs();
+            filterIcons();
         }
 
         // Clear search
@@ -40346,35 +40486,39 @@
             `;
         }
 
-        // Render weight filters
-        function renderWeightFilters() {
-            const container = document.getElementById('weightFilters');
-            container.innerHTML = state.weights.map(weight => `
-                <label class="weight-label">
-                    <input type="checkbox" value="${weight}" ${state.selectedWeights.has(weight) ? 'checked' : ''} onchange="toggleWeight('${weight}')">
-                    ${weight}
-                </label>
-            `).join('');
-        }
-
-        // Toggle weight selection
-        function toggleWeight(weight) {
-            if (state.selectedWeights.has(weight)) {
-                state.selectedWeights.delete(weight);
-            } else {
-                state.selectedWeights.add(weight);
-            }
-            filterIcons();
-        }
-
-        // Set active category
+        // Set active category and scroll to top
         function setCategory(category) {
             state.activeCategory = category;
             renderSidebar();
+            
+            // Close sidebar on mobile after selection
+            if (window.innerWidth <= 1024) {
+                closeSidebar();
+            }
+            
             filterIcons();
+            
+            // Scroll to top of main content
+            document.querySelector('.main-content').scrollTop = 0;
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         }
 
-        // Filter icons based on search, category, and weights
+        // Close sidebar
+        function closeSidebar() {
+            document.getElementById('sidebar').classList.remove('open');
+            document.getElementById('sidebarOverlay').classList.remove('active');
+        }
+
+        // Open sidebar
+        function openSidebar() {
+            document.getElementById('sidebar').classList.add('open');
+            document.getElementById('sidebarOverlay').classList.add('active');
+        }
+
+        // Filter icons based on search and category
         function filterIcons() {
             const search = document.getElementById('search').value.toLowerCase().trim();
             state.searchQuery = search;
@@ -40391,15 +40535,8 @@
                 const matchesCategory = state.activeCategory === 'all' || 
                                       icon.categories.includes(state.activeCategory);
                 
-                // Weight filter
-                const matchesWeights = icon.weights.some(w => state.selectedWeights.has(w));
-                
-                return matchesSearch && matchesCategory && matchesWeights;
+                return matchesSearch && matchesCategory;
             });
-            
-            // Update results count
-            document.getElementById('visibleCount').textContent = state.filteredIcons.length;
-            document.getElementById('totalCount').textContent = state.icons.length;
             
             renderIcons();
         }
@@ -40411,6 +40548,22 @@
             searchTimeout = setTimeout(filterIcons, 200);
         });
 
+        // Get preview path for icon based on selected weight
+        function getPreviewPath(icon) {
+            // Try to find the selected weight
+            const weightMatch = icon.weightPaths.find(wp => wp.weight === state.selectedWeight);
+            if (weightMatch) return weightMatch.path;
+            
+            // Fallback to priority order
+            for (const priority of WEIGHT_PRIORITY) {
+                const match = icon.weightPaths.find(wp => wp.weight.toLowerCase() === priority);
+                if (match) return match.path;
+            }
+            
+            // Fallback to first available
+            return icon.weightPaths[0]?.path || icon.preview;
+        }
+
         // Render icons grouped by category
         function renderIcons() {
             const container = document.getElementById('mainContent');
@@ -40418,9 +40571,9 @@
             if (state.filteredIcons.length === 0) {
                 container.innerHTML = `
                     <div class="no-results">
-                        <span style="font-size: 3rem;">🔍</span>
+                        <span style="font-size: 2.5rem;">🔍</span>
                         <p>No icons found matching your criteria</p>
-                        <p style="font-size: 0.875rem; color: #9ca3af; margin-top: 0.5rem;">Try adjusting your filters or search query</p>
+                        <p style="font-size: 0.8rem; color: #9ca3af; margin-top: 0.5rem;">Try adjusting your search</p>
                     </div>
                 `;
                 return;
@@ -40448,7 +40601,8 @@
                 `;
                 
                 icons.forEach(icon => {
-                    html += createIconCard(icon);
+                    const previewPath = getPreviewPath(icon);
+                    html += createIconCard(icon, previewPath);
                 });
                 
                 html += `
@@ -40461,12 +40615,12 @@
         }
 
         // Create icon card HTML
-        function createIconCard(icon) {
+        function createIconCard(icon, previewPath) {
             return `
                 <div class="icon-card" onclick="showIconDetails('${icon.name}')">
                     <div class="copy-tooltip">Click for details</div>
                     <div class="icon-preview">
-                        <img src="${icon.preview}" alt="${icon.displayName}" loading="lazy">
+                        <img src="${previewPath}" alt="${icon.displayName}" loading="lazy">
                     </div>
                     <div class="icon-info">
                         <div class="icon-name" title="${icon.name}">${icon.displayName}</div>
@@ -40512,7 +40666,7 @@
                 icon.weights.forEach(weight => {
                     weightHtml += `
                         <div class="weight-item">
-                            <div style="width:40px;height:40px;background:#f3f4f6;border-radius:8px;margin:0 auto 0.5rem;"></div>
+                            <div style="width:32px;height:32px;background:#f3f4f6;border-radius:6px;margin:0 auto 0.4rem;"></div>
                             <div class="weight-name">${weight}</div>
                         </div>
                     `;
@@ -40552,6 +40706,7 @@
         // Toggle sidebar on mobile
         const sidebarToggle = document.createElement('button');
         sidebarToggle.textContent = '☰ Categories';
+        sidebarToggle.className = 'sidebar-toggle';
         sidebarToggle.style.cssText = `
             position: fixed;
             bottom: 20px;
@@ -40579,15 +40734,22 @@
         };
         
         sidebarToggle.onclick = () => {
-            document.querySelector('.categories-sidebar').classList.toggle('open');
+            openSidebar();
         };
         
         document.body.appendChild(sidebarToggle);
 
-        // Show toggle on mobile
+        // Show toggle on mobile and ensure it's visible
         const mediaQuery = window.matchMedia('(max-width: 1024px)');
         const handleMobileChange = (e) => {
-            sidebarToggle.style.display = e.matches ? 'block' : 'none';
+            if (e.matches) {
+                sidebarToggle.style.display = 'block';
+                sidebarToggle.style.opacity = '1';
+                sidebarToggle.style.visibility = 'visible';
+            } else {
+                sidebarToggle.style.display = 'none';
+                closeSidebar();
+            }
         };
         
         mediaQuery.addListener(handleMobileChange);
@@ -40595,8 +40757,8 @@
 
         // Initialize
         updateStats();
+        renderWeightTabs();
         renderSidebar();
-        renderWeightFilters();
         filterIcons();
     </script>
 </body>
