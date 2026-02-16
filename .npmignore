@@ -13,4 +13,5 @@ tsconfig.json
 build.js
 readme.js
 dist/svgs
+svgs
 dist/icon-explorer.html
