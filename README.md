@@ -53,12 +53,12 @@ function App() {
 
 ## 🧩 Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `size` | `number` | `24` | Width & height of the icon |
-| `color` | `string` | `"currentColor"` | Stroke / fill color |
-| `weight` | `"fill" | "broken" | "outline" | "duotone" ` | `"outline"` | Icon style variant |
-| `...props` | `SVGProps<SVGSVGElement>` | — | Standard SVG props |
+| Prop       | Type                                  | Default             | Description              |
+|------------|---------------------------------------|-------------------|-------------------------|
+| `size`     | `number`                              | `24`              | Width & height of the icon |
+| `color`    | `string`                              | `"currentColor"`  | Stroke / fill color      |
+| `weight`   | `"fill" \| "broken" \| "outline" \| "duotone"` | `"outline"`       | Icon style variant       |
+| `...props` | `SVGProps<SVGSVGElement>`             | —                 | Standard SVG props       |
 
 ---
 
@@ -93,8 +93,7 @@ There are **1246** icons available:
 **... and 1226 more icons**
 
 
-
-[View all 1246 icons →](https://github.com/moamfar/icon-pack)
+[View all 1246 icons →](https://github.com/moamfar/icon-pack/blob/main/ICONS.txt)
 
 ---
 
