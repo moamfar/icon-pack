@@ -7,15 +7,19 @@ A collection of beautiful, weight-adjustable SVG icons.
 ![license](https://img.shields.io/npm/l/@moamfar/icon-pack.svg)
 ![TypeScript](https://img.shields.io/badge/TypeScript-%E2%9C%94-blue)
 
-## Features
+---
 
-- **🎨 6 Different Weights:** Fill, Broken and Outline
+## ✨ Features
+
+- **🎨 5 Style Weights:** Outline, Fill, Broken, Duotone, Line-Duotone
 - **🌳 Tree-shakable:** Import only what you use
-- **✨ TypeScript Ready:** Full type definitions included
+- **🧠 Fully Typed:** TypeScript definitions included
 - **⚡ Zero Dependencies:** Lightweight and fast
-- **🎯 React 16.8+ Compatible:** Works with all modern React versions
+- **🎯 React 16.8+ Compatible**
 
-## Installation
+---
+
+## 📦 Installation
 
 ```bash
 npm install @moamfar/icon-pack
@@ -27,32 +31,50 @@ or
 yarn add @moamfar/icon-pack
 ```
 
-## Quick Start
+---
+
+## 🚀 Quick Start
 
 ```tsx
 import { Heart, Star, User } from "@moamfar/icon-pack";
 
 function App() {
   return (
-    <div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
+    <div style={{ display: "flex", gap: 16 }}>
       <Heart size={32} color="red" weight="broken" />
-      <Star size={24} color="gold" />
+      <Star size={24} />
       <User size={48} color="#4f46e5" weight="fill" />
     </div>
   );
 }
 ```
 
-## Props
+---
+
+## 🧩 Props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `size` | `number` | `24` | Icon width and height |
-| `color` | `string` | `"currentColor"` | Fill color |
-| `weight` | `string` | `"outline"` | Style variant (fill, broken, outline, etc.) |
-| `...props` | `SVGProps` | - | Standard SVG attributes |
+| `size` | `number` | `24` | Width & height of the icon |
+| `color` | `string` | `"currentColor"` | Stroke / fill color |
+| `weight` | `"fill" | "broken" | "outline" | "duotone" | "line-duotone"` | `"outline"` | Icon style variant |
+| `...props` | `SVGProps<SVGSVGElement>` | — | Standard SVG props |
 
-## Available Icons
+---
+
+## 🎨 Weight Variants
+
+Each icon includes:
+
+- **Outline** — Clean line style
+- **Fill** — Solid filled style
+- **Broken** — Stylized stroke design
+- **Duotone** — Two-layer tone styling
+- **Line-Duotone** — Stroke-based duotone style
+
+---
+
+## 🗂 Available Icons
 
 There are **1246** icons available:
 
@@ -72,22 +94,17 @@ There are **1246** icons available:
 **... and 1226 more icons**
 
 
+
 [View all 1246 icons →](https://github.com/moamfar/icon-pack)
 
-## Weight Variants
+---
 
-Each icon comes in multiple styles:
-
-- **Outline** - Thin line icons
-- **Fill** - Thick filled icons  
-- **Broken** - Dashed/stroke icons
-
-## License
+## 📄 License
 
 MIT © 2026 moamfar
 
 ---
 
 <div align="center">
-  Made with ❤️ by <a href="https://github.com/moamfar">moamfar</a>
+  Built with ❤️ by <a href="https://github.com/moamfar">moamfar</a>
 </div>
