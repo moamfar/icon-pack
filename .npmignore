@@ -17,3 +17,4 @@ generate-icons-html.js
 dist/svgs
 svgs
 dist/icon-explorer.html
+scripts/

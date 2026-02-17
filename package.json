@@ -22,9 +22,9 @@
     "access": "public"
   },
   "scripts": {
-    "build": "node build.js",
-    "build:intellisense": "node generate-enhanced-types.js",
-    "readme": "node readme.js",
+    "build": "cd scripts &&  node build.js",
+    "build:intellisense": "cd scripts && node generate-enhanced-types.js",
+    "readme": "cd scripts &&  node readme.js",
     "prepublishOnly": "npm run build && npm run build:intellisense && npm run readme",
     "clean": "rm -rf dist"
   },

@@ -13,3 +13,4 @@ tsconfig.json
 .vscode/
 .idea/
 coverage/
+scripts/
