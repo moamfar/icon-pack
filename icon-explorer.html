@@ -11,25 +11,62 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --bg-primary: #f9fafb;
+            --bg-secondary: white;
+            --bg-tertiary: #f3f4f6;
+            --text-primary: #111827;
+            --text-secondary: #6b7280;
+            --text-tertiary: #4b5563;
+            --border-color: #e5e7eb;
+            --border-hover: #d1d5db;
+            --accent-color: #4f46e5;
+            --accent-light: #eef2ff;
+            --card-bg: white;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --header-bg: rgba(255, 255, 255, 0.9);
+            --scrollbar-track: #f1f1f1;
+            --scrollbar-thumb: #4f46e5;
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #111827;
+            --bg-secondary: #1f2937;
+            --bg-tertiary: #374151;
+            --text-primary: #f9fafb;
+            --text-secondary: #9ca3af;
+            --text-tertiary: #d1d5db;
+            --border-color: #374151;
+            --border-hover: #4b5563;
+            --accent-color: #818cf8;
+            --accent-light: #2d2f3a;
+            --card-bg: #1f2937;
+            --shadow: rgba(0, 0, 0, 0.3);
+            --header-bg: rgba(31, 41, 55, 0.9);
+            --scrollbar-track: #374151;
+            --scrollbar-thumb: #818cf8;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #f9fafb;
-            color: #111827;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             line-height: 1.5;
             overflow-x: hidden;
             width: 100%;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         .header {
-            background: white;
-            border-bottom: 1px solid #e5e7eb;
+            background: var(--header-bg);
+            border-bottom: 1px solid var(--border-color);
             padding: 1rem 2rem;
             position: sticky;
             top: 0;
             z-index: 40;
             backdrop-filter: blur(8px);
-            background: rgba(255, 255, 255, 0.9);
             width: 100%;
+            transition: background-color 0.3s, border-color 0.3s;
         }
 
         .header-top {
@@ -40,19 +77,117 @@
             flex-wrap: wrap;
         }
 
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
         .header h1 {
             font-size: 1.75rem;
             font-weight: 600;
-            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            background: linear-gradient(135deg, var(--accent-color), #7c3aed);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             white-space: nowrap;
         }
 
+        .theme-toggle, .color-picker-toggle {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 30px;
+            padding: 0.35rem 0.75rem;
+            font-size: 0.875rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            color: var(--text-secondary);
+            transition: all 0.2s;
+        }
+
+        .theme-toggle:hover, .color-picker-toggle:hover {
+            background: var(--border-hover);
+            color: var(--text-primary);
+        }
+
+        .color-picker-container {
+            position: relative;
+        }
+
+        .color-picker-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 0.5rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1rem;
+            box-shadow: 0 10px 25px -5px var(--shadow);
+            z-index: 50;
+            display: none;
+            width: 240px;
+        }
+
+        .color-picker-dropdown.active {
+            display: block;
+        }
+
+        .color-picker-header {
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .color-input {
+            width: 100%;
+            height: 40px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+            cursor: pointer;
+            background: var(--bg-primary);
+        }
+
+        .color-presets {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .color-preset {
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .color-preset:hover {
+            transform: scale(1.1);
+            border-color: var(--accent-color);
+        }
+
+        .color-preset.active {
+            border-color: var(--text-primary);
+        }
+
+        .color-preset.purple { background: #4f46e5; }
+        .color-preset.blue { background: #3b82f6; }
+        .color-preset.green { background: #10b981; }
+        .color-preset.red { background: #ef4444; }
+        .color-preset.orange { background: #f97316; }
+        .color-preset.pink { background: #ec4899; }
+
         .header-stats {
             display: flex;
             gap: 1rem;
-            color: #6b7280;
+            color: var(--text-secondary);
             font-size: 0.875rem;
             margin-left: auto;
         }
@@ -61,7 +196,7 @@
             display: flex;
             align-items: center;
             gap: 0.25rem;
-            background: #f3f4f6;
+            background: var(--bg-tertiary);
             padding: 0.35rem 0.75rem;
             border-radius: 30px;
             white-space: nowrap;
@@ -71,34 +206,61 @@
             font-size: 1rem;
         }
 
-        .npm-button {
+        .header-buttons {
+            display: flex;
+            gap: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        .npm-button, .github-button {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: #cb3837;
-            color: white;
             width: 36px;
             height: 36px;
             border-radius: 50%;
             text-decoration: none;
             transition: all 0.2s;
-            box-shadow: 0 2px 4px rgba(203, 56, 55, 0.2);
+            box-shadow: 0 2px 4px var(--shadow);
             flex-shrink: 0;
+        }
+
+        .npm-button {
+            background: #cb3837;
+        }
+
+        .github-button {
+            background: #24292e;
+        }
+
+        [data-theme="dark"] .github-button {
+            background: #2b3137;
+        }
+
+        .npm-button:hover, .github-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px var(--shadow);
         }
 
         .npm-button:hover {
             background: #b52b2a;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(203, 56, 55, 0.3);
         }
 
-        .npm-button img {
+        .github-button:hover {
+            background: #1b1f23;
+        }
+
+        [data-theme="dark"] .github-button:hover {
+            background: #20262b;
+        }
+
+        .npm-button img, .github-button img {
             width: 20px;
             height: 20px;
             filter: brightness(0) invert(1);
         }
 
-        .npm-button span {
+        .npm-button span, .github-button span {
             display: none;
         }
 
@@ -112,18 +274,23 @@
         .search-box {
             width: 100%;
             padding: 0.75rem 1rem 0.75rem 2.75rem;
-            border: 2px solid #e5e7eb;
+            border: 2px solid var(--border-color);
             border-radius: 40px;
             font-size: 0.95rem;
             transition: all 0.2s;
-            background: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            box-shadow: 0 2px 4px var(--shadow);
         }
 
         .search-box:focus {
             outline: none;
-            border-color: #4f46e5;
+            border-color: var(--accent-color);
             box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15);
+        }
+
+        .search-box::placeholder {
+            color: var(--text-secondary);
         }
 
         .search-icon {
@@ -131,7 +298,7 @@
             left: 1rem;
             top: 50%;
             transform: translateY(-50%);
-            color: #9ca3af;
+            color: var(--text-secondary);
             font-size: 1.1rem;
             pointer-events: none;
         }
@@ -143,7 +310,7 @@
             transform: translateY(-50%);
             background: none;
             border: none;
-            color: #9ca3af;
+            color: var(--text-secondary);
             font-size: 1.1rem;
             cursor: pointer;
             padding: 0.25rem;
@@ -156,8 +323,8 @@
         }
 
         .search-clear:hover {
-            background: #f3f4f6;
-            color: #4b5563;
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
         }
 
         .search-box:not(:placeholder-shown) + .search-clear {
@@ -180,20 +347,21 @@
             font-weight: 500;
             cursor: pointer;
             transition: all 0.2s;
-            background: white;
-            border: 1px solid #e5e7eb;
-            color: #4b5563;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
             white-space: nowrap;
         }
 
         .weight-tab:hover {
-            background: #f3f4f6;
-            border-color: #d1d5db;
+            background: var(--bg-tertiary);
+            border-color: var(--border-hover);
+            color: var(--text-primary);
         }
 
         .weight-tab.active {
-            background: #4f46e5;
-            border-color: #4f46e5;
+            background: var(--accent-color);
+            border-color: var(--accent-color);
             color: white;
         }
 
@@ -203,11 +371,11 @@
             top: 135px;
             bottom: 0;
             width: 260px;
-            background: white;
-            border-right: 1px solid #e5e7eb;
+            background: var(--bg-secondary);
+            border-right: 1px solid var(--border-color);
             padding: 1.5rem 1rem;
             overflow-y: auto;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, background-color 0.3s, border-color 0.3s;
         }
 
         .categories-sidebar h3 {
@@ -215,7 +383,7 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            color: #6b7280;
+            color: var(--text-secondary);
             margin-bottom: 1rem;
             padding-left: 0.5rem;
         }
@@ -232,7 +400,7 @@
             display: block;
             padding: 0.5rem 0.75rem;
             border-radius: 8px;
-            color: #374151;
+            color: var(--text-tertiary);
             text-decoration: none;
             font-size: 0.9rem;
             transition: all 0.2s;
@@ -241,25 +409,26 @@
         }
 
         .category-link:hover {
-            background: #f3f4f6;
-            border-left-color: #d1d5db;
+            background: var(--bg-tertiary);
+            border-left-color: var(--border-hover);
+            color: var(--text-primary);
         }
 
         .category-link.active {
-            background: #eef2ff;
-            color: #4f46e5;
+            background: var(--accent-light);
+            color: var(--accent-color);
             font-weight: 500;
-            border-left-color: #4f46e5;
+            border-left-color: var(--accent-color);
         }
 
         .category-count {
             float: right;
-            color: #9ca3af;
+            color: var(--text-secondary);
             font-size: 0.8rem;
         }
 
         .category-link.active .category-count {
-            color: #4f46e5;
+            color: var(--accent-color);
         }
 
         .main-content {
@@ -277,8 +446,8 @@
         }
 
         .icon-card {
-            background: white;
-            border: 1px solid #e5e7eb;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
             border-radius: 12px;
             padding: 1rem 0.75rem;
             transition: all 0.2s;
@@ -290,8 +459,8 @@
 
         .icon-card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-            border-color: #4f46e5;
+            box-shadow: 0 10px 25px -5px var(--shadow);
+            border-color: var(--accent-color);
         }
 
         .icon-preview {
@@ -300,9 +469,10 @@
             align-items: center;
             min-height: 70px;
             padding: 0.5rem;
-            background: white;
+            background: var(--bg-primary);
             border-radius: 8px;
             margin-bottom: 0.5rem;
+            transition: background-color 0.3s;
         }
 
         .icon-preview img {
@@ -311,6 +481,7 @@
             transition: transform 0.2s;
             display: block;
             object-fit: contain;
+            filter: drop-shadow(0 2px 4px var(--shadow));
         }
 
         .icon-card:hover .icon-preview img {
@@ -324,7 +495,7 @@
         .icon-name {
             font-weight: 600;
             font-size: 0.8rem;
-            color: #111827;
+            color: var(--text-primary);
             margin-bottom: 0.2rem;
             white-space: nowrap;
             overflow: hidden;
@@ -333,12 +504,12 @@
 
         .icon-category {
             font-size: 0.7rem;
-            color: #6b7280;
+            color: var(--text-secondary);
             margin-bottom: 0.4rem;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            background: #f3f4f6;
+            background: var(--bg-tertiary);
             display: inline-block;
             padding: 0.1rem 0.4rem;
             border-radius: 12px;
@@ -356,11 +527,11 @@
             display: inline-flex;
             align-items: center;
             padding: 0.15rem 0.4rem;
-            background: #f3f4f6;
+            background: var(--bg-tertiary);
             border-radius: 4px;
             font-size: 0.55rem;
             font-weight: 500;
-            color: #4b5563;
+            color: var(--text-secondary);
             transition: all 0.2s;
             text-transform: capitalize;
         }
@@ -376,24 +547,25 @@
             font-weight: 600;
             margin-bottom: 1rem;
             padding-bottom: 0.4rem;
-            border-bottom: 2px solid #e5e7eb;
+            border-bottom: 2px solid var(--border-color);
             display: flex;
             align-items: center;
             gap: 0.75rem;
             position: sticky;
             top: 135px;
-            background: #f9fafb;
+            background: var(--bg-primary);
             z-index: 30;
             padding-top: 0.5rem;
             width: 100%;
+            transition: background-color 0.3s, border-color 0.3s;
         }
 
         .category-title span {
-            background: #f3f4f6;
+            background: var(--bg-tertiary);
             padding: 0.2rem 0.6rem;
             border-radius: 20px;
             font-size: 0.8rem;
-            color: #4b5563;
+            color: var(--text-secondary);
         }
 
         .loading {
@@ -402,17 +574,17 @@
             align-items: center;
             min-height: 400px;
             font-size: 1rem;
-            color: #6b7280;
+            color: var(--text-secondary);
         }
 
         .no-results {
             text-align: center;
             padding: 3rem;
-            color: #6b7280;
+            color: var(--text-secondary);
             grid-column: 1 / -1;
-            background: white;
+            background: var(--bg-secondary);
             border-radius: 12px;
-            border: 2px dashed #e5e7eb;
+            border: 2px dashed var(--border-color);
             width: 100%;
         }
 
@@ -426,8 +598,8 @@
             top: 0.35rem;
             right: 0.35rem;
             padding: 0.2rem 0.4rem;
-            background: #1f2937;
-            color: white;
+            background: var(--text-primary);
+            color: var(--bg-primary);
             border-radius: 4px;
             font-size: 0.65rem;
             opacity: 0;
@@ -458,14 +630,14 @@
         }
 
         .modal-content {
-            background: white;
+            background: var(--bg-secondary);
             border-radius: 16px;
             padding: 1.5rem;
             max-width: 550px;
             width: 90%;
             max-height: 80vh;
             overflow-y: auto;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 25px 50px -12px var(--shadow);
         }
 
         .modal-header {
@@ -474,13 +646,13 @@
             align-items: center;
             margin-bottom: 1rem;
             padding-bottom: 0.75rem;
-            border-bottom: 1px solid #e5e7eb;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .modal-header h2 {
             font-size: 1.25rem;
             font-weight: 600;
-            color: #111827;
+            color: var(--text-primary);
         }
 
         .modal-close {
@@ -488,7 +660,7 @@
             border: none;
             font-size: 1.5rem;
             cursor: pointer;
-            color: #6b7280;
+            color: var(--text-secondary);
             width: 30px;
             height: 30px;
             display: flex;
@@ -499,8 +671,8 @@
         }
 
         .modal-close:hover {
-            background: #f3f4f6;
-            color: #111827;
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
         }
 
         .weight-showcase {
@@ -513,10 +685,10 @@
         .weight-item {
             text-align: center;
             padding: 0.75rem 0.5rem;
-            background: #f9fafb;
+            background: var(--bg-tertiary);
             border-radius: 10px;
             transition: all 0.2s;
-            border: 1px solid #e5e7eb;
+            border: 1px solid var(--border-color);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -524,8 +696,8 @@
 
         .weight-item:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            border-color: #4f46e5;
+            box-shadow: 0 4px 6px -1px var(--shadow);
+            border-color: var(--accent-color);
         }
 
         .weight-item img {
@@ -533,39 +705,41 @@
             height: 32px;
             margin-bottom: 0.4rem;
             object-fit: contain;
+            filter: drop-shadow(0 2px 4px var(--shadow));
         }
 
         .weight-name {
             font-size: 0.75rem;
             font-weight: 500;
-            color: #4b5563;
+            color: var(--text-secondary);
             text-transform: capitalize;
         }
 
         .import-code {
             margin-top: 1.5rem;
             padding: 1rem;
-            background: #f3f4f6;
+            background: var(--bg-tertiary);
             border-radius: 10px;
-            border: 1px solid #e5e7eb;
+            border: 1px solid var(--border-color);
         }
 
         .import-code h3 {
             font-size: 0.9rem;
             font-weight: 600;
             margin-bottom: 0.4rem;
-            color: #374151;
+            color: var(--text-primary);
         }
 
         .import-code code {
             display: block;
             padding: 0.75rem;
-            background: #1f2937;
-            color: #e5e7eb;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             border-radius: 8px;
             font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', monospace;
             font-size: 0.8rem;
             overflow-x: auto;
+            border: 1px solid var(--border-color);
         }
 
         /* Sidebar overlay for mobile */
@@ -597,6 +771,10 @@
                 width: 100%;
             }
             
+            .header-left {
+                gap: 0.5rem;
+            }
+            
             .header-stats {
                 display: none;
             }
@@ -605,7 +783,12 @@
                 font-size: 1.25rem;
             }
             
-            .npm-button {
+            .theme-toggle, .color-picker-toggle {
+                padding: 0.25rem 0.5rem;
+                font-size: 0.75rem;
+            }
+            
+            .npm-button, .github-button {
                 width: 36px;
                 height: 36px;
                 display: flex;
@@ -613,7 +796,7 @@
                 justify-content: center;
             }
             
-            .npm-button span {
+            .npm-button span, .github-button span {
                 display: none;
             }
             
@@ -637,12 +820,12 @@
             }
             
             .weight-tabs::-webkit-scrollbar-track {
-                background: #f1f1f1;
+                background: var(--scrollbar-track);
                 border-radius: 10px;
             }
             
             .weight-tabs::-webkit-scrollbar-thumb {
-                background: #4f46e5;
+                background: var(--scrollbar-thumb);
                 border-radius: 10px;
             }
             
@@ -663,7 +846,7 @@
             
             .categories-sidebar.open {
                 transform: translateX(0);
-                box-shadow: 2px 0 20px rgba(0,0,0,0.2);
+                box-shadow: 2px 0 20px var(--shadow);
             }
             
             .main-content {
@@ -691,6 +874,11 @@
                 left: 20px;
                 z-index: 50;
             }
+
+            .color-picker-dropdown {
+                right: auto;
+                left: 0;
+            }
         }
 
         @media (max-width: 480px) {
@@ -710,6 +898,10 @@
                 width: 24px;
                 height: 24px;
             }
+            
+            .color-picker-dropdown {
+                width: 200px;
+            }
         }
     </style>
 </head>
@@ -719,12 +911,43 @@
 
     <div class="header">
         <div class="header-top">
-            <h1>🎨 Icon Pack</h1>
+            <div class="header-left">
+                <h1>🎨 Icon Pack</h1>
+                <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+                    <span id="themeIcon">🌙</span>
+                    <span id="themeText">Dark</span>
+                </button>
+                <div class="color-picker-container">
+                    <button class="color-picker-toggle" id="colorPickerToggle" onclick="toggleColorPicker()">
+                        <span>🎨</span>
+                        <span>Color</span>
+                    </button>
+                    <div class="color-picker-dropdown" id="colorPickerDropdown">
+                        <div class="color-picker-header">Icon Color</div>
+                        <input type="color" class="color-input" id="iconColorInput" value="#4f46e5" onchange="setIconColor(this.value)">
+                        <div class="color-presets">
+                            <div class="color-preset purple" onclick="setIconColor('#4f46e5')"></div>
+                            <div class="color-preset blue" onclick="setIconColor('#3b82f6')"></div>
+                            <div class="color-preset green" onclick="setIconColor('#10b981')"></div>
+                            <div class="color-preset red" onclick="setIconColor('#ef4444')"></div>
+                            <div class="color-preset orange" onclick="setIconColor('#f97316')"></div>
+                            <div class="color-preset pink" onclick="setIconColor('#ec4899')"></div>
+                        </div>
+                        <button class="weight-tab" style="width:100%;" onclick="resetIconColor()">Reset</button>
+                    </div>
+                </div>
+            </div>
             <div class="header-stats" id="headerStats"></div>
-            <a href="https://www.npmjs.com/package/@moamfar/icon-pack" target="_blank" class="npm-button" title="@moamfar/icon-pack">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/npm.svg" alt="npm">
-                <span>@moamfar/icon-pack</span>
-            </a>
+            <div class="header-buttons">
+                <a href="https://www.npmjs.com/package/@moamfar/icon-pack" target="_blank" class="npm-button" title="@moamfar/icon-pack">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/npm.svg" alt="npm">
+                    <span>@moamfar/icon-pack</span>
+                </a>
+                <a href="https://github.com/moamfar/icon-pack" target="_blank" class="github-button" title="GitHub Repository">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/github.svg" alt="GitHub">
+                    <span>GitHub</span>
+                </a>
+            </div>
         </div>
         
         <div class="search-container">
@@ -40423,8 +40646,85 @@
             weights: WEIGHTS,
             selectedWeight: WEIGHT_PRIORITY[0] || WEIGHTS[0] || 'outline',
             searchQuery: '',
-            activeCategory: 'all'
+            activeCategory: 'all',
+            iconColor: '#4f46e5',
+            theme: 'light'
         };
+
+        // Load saved preferences
+        function loadPreferences() {
+            const savedTheme = localStorage.getItem('iconPack-theme');
+            const savedColor = localStorage.getItem('iconPack-color');
+            
+            if (savedTheme) {
+                state.theme = savedTheme;
+                document.documentElement.setAttribute('data-theme', savedTheme);
+                updateThemeButton();
+            }
+            
+            if (savedColor) {
+                state.iconColor = savedColor;
+                document.getElementById('iconColorInput').value = savedColor;
+            }
+        }
+
+        // Toggle theme
+        function toggleTheme() {
+            state.theme = state.theme === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', state.theme);
+            localStorage.setItem('iconPack-theme', state.theme);
+            updateThemeButton();
+        }
+
+        // Update theme button
+        function updateThemeButton() {
+            const icon = document.getElementById('themeIcon');
+            const text = document.getElementById('themeText');
+            if (state.theme === 'dark') {
+                icon.textContent = '☀️';
+                text.textContent = 'Light';
+            } else {
+                icon.textContent = '🌙';
+                text.textContent = 'Dark';
+            }
+        }
+
+        // Toggle color picker
+        function toggleColorPicker() {
+            document.getElementById('colorPickerDropdown').classList.toggle('active');
+        }
+
+        // Set icon color
+        function setIconColor(color) {
+            state.iconColor = color;
+            localStorage.setItem('iconPack-color', color);
+            document.getElementById('iconColorInput').value = color;
+            
+            // Update all icon images with a cache-busting parameter
+            document.querySelectorAll('.icon-preview img').forEach(img => {
+                const src = img.src.split('?')[0];
+                img.src = src + '?color=' + color.substring(1) + '&t=' + Date.now();
+            });
+            
+            // Close color picker on mobile after selection
+            if (window.innerWidth <= 1024) {
+                document.getElementById('colorPickerDropdown').classList.remove('active');
+            }
+        }
+
+        // Reset icon color
+        function resetIconColor() {
+            setIconColor('#4f46e5');
+        }
+
+        // Close color picker when clicking outside
+        document.addEventListener('click', function(event) {
+            const container = document.querySelector('.color-picker-container');
+            const dropdown = document.getElementById('colorPickerDropdown');
+            if (container && !container.contains(event.target) && dropdown.classList.contains('active')) {
+                dropdown.classList.remove('active');
+            }
+        });
 
         // Update statistics in header
         function updateStats() {
@@ -40573,7 +40873,7 @@
                     <div class="no-results">
                         <span style="font-size: 2.5rem;">🔍</span>
                         <p>No icons found matching your criteria</p>
-                        <p style="font-size: 0.8rem; color: #9ca3af; margin-top: 0.5rem;">Try adjusting your search</p>
+                        <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem;">Try adjusting your search</p>
                     </div>
                 `;
                 return;
@@ -40602,7 +40902,8 @@
                 
                 icons.forEach(icon => {
                     const previewPath = getPreviewPath(icon);
-                    html += createIconCard(icon, previewPath);
+                    const colorParam = state.iconColor ? '?color=' + state.iconColor.substring(1) : '';
+                    html += createIconCard(icon, previewPath + colorParam);
                 });
                 
                 html += `
@@ -40653,9 +40954,10 @@
             
             if (icon.weightPaths && icon.weightPaths.length > 0) {
                 icon.weightPaths.forEach(weightPath => {
+                    const colorParam = state.iconColor ? '?color=' + state.iconColor.substring(1) : '';
                     weightHtml += `
                         <div class="weight-item">
-                            <img src="${weightPath.path}" alt="${weightPath.weight}" 
+                            <img src="${weightPath.path}${colorParam}" alt="${weightPath.weight}" 
                                  onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHJ4PSI0IiBmaWxsPSIjRjNGNEY2Ii8+PHRleHQgeD0iMTIiIHk9IjE2IiBmb250LXNpemU9IjEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNEY0NkU1IiBmb250LWZhbWlseT0ic3lzdGVtLXVpLCAtYXBwbGUtc3lzdGVtLCBzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iNTAwIj4ke3dlaWdodFBhdGgud2VpZ2h0LnN1YnN0cmluZygwLDIpfTwvdGV4dD48L3N2Zz4='">
                             <div class="weight-name">${weightPath.weight}</div>
                         </div>
@@ -40666,7 +40968,7 @@
                 icon.weights.forEach(weight => {
                     weightHtml += `
                         <div class="weight-item">
-                            <div style="width:32px;height:32px;background:#f3f4f6;border-radius:6px;margin:0 auto 0.4rem;"></div>
+                            <div style="width:32px;height:32px;background:var(--bg-tertiary);border-radius:6px;margin:0 auto 0.4rem;"></div>
                             <div class="weight-name">${weight}</div>
                         </div>
                     `;
@@ -40683,7 +40985,7 @@
                 </div>
                 <div class="import-code" style="margin-top: 1rem;">
                     <h3>Usage</h3>
-                    <code>&lt;${icon.name} size={24} color="currentColor" /&gt;</code>
+                    <code>&lt;${icon.name} size={24} color="${state.iconColor}" /&gt;</code>
                 </div>
             `;
             
@@ -40755,7 +41057,8 @@
         mediaQuery.addListener(handleMobileChange);
         handleMobileChange(mediaQuery);
 
-        // Initialize
+        // Load preferences and initialize
+        loadPreferences();
         updateStats();
         renderWeightTabs();
         renderSidebar();

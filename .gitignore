@@ -14,3 +14,4 @@ tsconfig.json
 .idea/
 coverage/
 scripts/
+src/raw
