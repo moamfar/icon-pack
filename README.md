@@ -53,12 +53,12 @@ function App() {
 
 ## 🧩 Props
 
-| Prop       | Type                                  | Default             | Description              |
-|------------|---------------------------------------|-------------------|-------------------------|
-| `size`     | `number`                              | `24`              | Width & height of the icon |
-| `color`    | `string`                              | `"currentColor"`  | Stroke / fill color      |
-| `weight`   | `"fill" \| "broken" \| "outline" \| "duotone"` | `"outline"`       | Icon style variant       |
-| `...props` | `SVGProps<SVGSVGElement>`             | —                 | Standard SVG props       |
+| Prop       | Type                                           | Default          | Description                |
+| ---------- | ---------------------------------------------- | ---------------- | -------------------------- |
+| `size`     | `number`                                       | `24`             | Width & height of the icon |
+| `color`    | `string`                                       | `"currentColor"` | Stroke / fill color        |
+| `weight`   | `"fill" \| "broken" \| "outline" \| "duotone"` | `"outline"`      | Icon style variant         |
+| `...props` | `SVGProps<SVGSVGElement>`                      | —                | Standard SVG props         |
 
 ---
 
@@ -75,11 +75,7 @@ Each icon includes:
 
 ## 🗂 Available Icons
 
-There are **0** icons available:
-
-No icons found.
-
-
+[Icons Preview](https://moamfar.github.io/icon-pack/icon-explorer.html)
 
 ---
 
