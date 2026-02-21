@@ -1,6 +1,6 @@
 {
   "name": "@moamfar/icon-pack",
-  "version": "1.1.4",
+  "version": "1.1.0",
   "description": "A collection of beautiful, weight-adjustable SVG icons.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -13,19 +13,9 @@
   ],
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
-    },
-    "./*": {
-      "types": "./dist/*/index.d.ts",
-      "import": "./dist/*/index.js"
-    }
-  },
-  "typesVersions": {
-    "*": {
-      "*": [
-        "./dist/*"
-      ]
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     }
   },
   "publishConfig": {
@@ -35,7 +25,7 @@
     "build": "cd scripts &&  node build.js",
     "build:intellisense": "cd scripts && node generate-enhanced-types.js",
     "readme": "cd scripts &&  node readme.js",
-    "prepublishOnly": "npm run build && npm run build:intellisense ",
+    "prepublishOnly": "npm run build && npm run build:intellisense && npm run readme",
     "clean": "rm -rf dist"
   },
   "keywords": [
@@ -63,6 +53,5 @@
   "bugs": {
     "url": "https://github.com/moamfar/icon-pack/issues"
   },
-  "homepage": "https://github.com/moamfar/icon-pack#readme",
-  "type": "module"
+  "homepage": "https://github.com/moamfar/icon-pack#readme"
 }
