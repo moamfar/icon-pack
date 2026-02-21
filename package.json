@@ -53,5 +53,6 @@
   "bugs": {
     "url": "https://github.com/moamfar/icon-pack/issues"
   },
-  "homepage": "https://github.com/moamfar/icon-pack#readme"
+  "homepage": "https://github.com/moamfar/icon-pack#readme",
+  "type": "module"
 }

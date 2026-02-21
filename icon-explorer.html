@@ -114,6 +114,7 @@
 
         .color-picker-container {
             position: relative;
+            display:none;
         }
 
         .color-picker-dropdown {
@@ -786,6 +787,7 @@
             .theme-toggle, .color-picker-toggle {
                 padding: 0.25rem 0.5rem;
                 font-size: 0.75rem;
+                display:none;
             }
             
             .npm-button, .github-button {
@@ -913,29 +915,29 @@
         <div class="header-top">
             <div class="header-left">
                 <h1>🎨 Icon Pack</h1>
-                // <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
-                //     <span id="themeIcon">🌙</span>
-                //     <span id="themeText">Dark</span>
-                // </button>
-                // <div class="color-picker-container">
-                //     <button class="color-picker-toggle" id="colorPickerToggle" onclick="toggleColorPicker()">
-                //         <span>🎨</span>
-                //         <span>Color</span>
-                //     </button>
-                //     <div class="color-picker-dropdown" id="colorPickerDropdown">
-                //         <div class="color-picker-header">Icon Color</div>
-                //         <input type="color" class="color-input" id="iconColorInput" value="#4f46e5" onchange="setIconColor(this.value)">
-                //         <div class="color-presets">
-                //             <div class="color-preset purple" onclick="setIconColor('#4f46e5')"></div>
-                //             <div class="color-preset blue" onclick="setIconColor('#3b82f6')"></div>
-                //             <div class="color-preset green" onclick="setIconColor('#10b981')"></div>
-                //             <div class="color-preset red" onclick="setIconColor('#ef4444')"></div>
-                //             <div class="color-preset orange" onclick="setIconColor('#f97316')"></div>
-                //             <div class="color-preset pink" onclick="setIconColor('#ec4899')"></div>
-                //         </div>
-                //         <button class="weight-tab" style="width:100%;" onclick="resetIconColor()">Reset</button>
-                //     </div>
-                // </div>
+                <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+                    <span id="themeIcon">🌙</span>
+                    <span id="themeText">Dark</span>
+                </button>
+                <div class="color-picker-container">
+                    <button class="color-picker-toggle" id="colorPickerToggle" onclick="toggleColorPicker()">
+                        <span>🎨</span>
+                        <span>Color</span>
+                    </button>
+                    <div class="color-picker-dropdown" id="colorPickerDropdown">
+                        <div class="color-picker-header">Icon Color</div>
+                        <input type="color" class="color-input" id="iconColorInput" value="#4f46e5" onchange="setIconColor(this.value)">
+                        <div class="color-presets">
+                            <div class="color-preset purple" onclick="setIconColor('#4f46e5')"></div>
+                            <div class="color-preset blue" onclick="setIconColor('#3b82f6')"></div>
+                            <div class="color-preset green" onclick="setIconColor('#10b981')"></div>
+                            <div class="color-preset red" onclick="setIconColor('#ef4444')"></div>
+                            <div class="color-preset orange" onclick="setIconColor('#f97316')"></div>
+                            <div class="color-preset pink" onclick="setIconColor('#ec4899')"></div>
+                        </div>
+                        <button class="weight-tab" style="width:100%;" onclick="resetIconColor()">Reset</button>
+                    </div>
+                </div>
             </div>
             <div class="header-stats" id="headerStats"></div>
             <div class="header-buttons">
@@ -40647,7 +40649,7 @@
             selectedWeight: WEIGHT_PRIORITY[0] || WEIGHTS[0] || 'outline',
             searchQuery: '',
             activeCategory: 'all',
-            iconColor: '#4f46e5',
+            iconColor: 'red',
             theme: 'light'
         };
 
