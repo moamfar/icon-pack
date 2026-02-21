@@ -1,5 +1,5 @@
 /**
- * Icon Catalog - Generated on 2026-02-21T07:00:22.286Z
+ * Icon Catalog - Generated on 2026-02-21T07:11:08.425Z
  * This file shows all available icons and which categories they belong to.
  */
 
@@ -9906,6 +9906,6 @@ export const iconCatalog = [
  * 2. Import from root (will work for all icons):
  *    import { IconName } from '@moamfar/icon-pack';
  * 
- * Note: Icons that appear in multiple categories are aliased in the root export.
- * The TypeScript definitions handle this automatically.
+ * Note: For icons that appear in multiple categories, the root export uses the
+ * primary category: Bill, Cup, Document, Forward, Home, Mirror, Notebook, RecordCircle, Reorder, Star, Stars
  */
