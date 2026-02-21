@@ -1,6 +1,10 @@
-
-import React from "react";
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Balloon = void 0;
+const react_1 = __importDefault(require("react"));
 const svgs = {
   "broken": `
 <path d="M8.00012 16.6065C9.1493 17.4664 10.5185 17.9874 12 17.9997C16.142 18.0342 19.5937 14.0798 19.5603 9.80427C19.5268 5.52872 16.142 2.03473 12 2.00023C7.858 1.96572 4.52734 5.40377 4.56077 9.67933C4.56976 10.8295 4.81252 11.9605 5.24326 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -26,25 +30,25 @@ const svgs = {
 </svg>
 `,
 };
-
-export const Balloon = ({
-  size = 24,
-  color = "currentColor",
-  weight = "outline",
-  ...props
-}) => {
-  const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width={size}
-      height={size}
-      color={color}
-      fill="none"
-      {...props}
-    >
-      <g dangerouslySetInnerHTML={{ __html: svgs[activeWeight] }} />
-    </svg>
-  );
+const Balloon = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+    const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
+   return (
+  react_1.default.createElement(
+    "svg",
+    Object.assign(
+      {
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size,
+        color: color,      
+        fill: "none"      
+      },
+      props
+    ),
+    react_1.default.createElement("g", {
+      dangerouslySetInnerHTML: { __html: svgs[activeWeight] }
+    })
+  )
+);
 };
+exports.Balloon = Balloon;

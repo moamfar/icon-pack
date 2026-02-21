@@ -1,6 +1,10 @@
-
-import React from "react";
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.PaperBin = void 0;
+const react_1 = __importDefault(require("react"));
 const svgs = {
   "broken": `
 <path d="M18.0002 2.05222C19.3685 2.14165 20.2231 2.38425 20.7898 3.04233C21.6874 4.08466 21.4472 5.68646 20.9666 8.89004L19.7666 16.89C19.401 19.3276 19.2182 20.5464 18.3743 21.2732C17.5303 22 16.2979 22 13.833 22H10.1673C7.7024 22 6.46997 22 5.62604 21.2732C4.78211 20.5464 4.59929 19.3276 4.23365 16.89L3.03365 8.89004C2.55311 5.68645 2.31285 4.08466 3.21049 3.04233C4.10813 2 5.72784 2 8.96727 2H14.0002" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -38,25 +42,25 @@ const svgs = {
 </svg>
 `,
 };
-
-export const PaperBin = ({
-  size = 24,
-  color = "currentColor",
-  weight = "outline",
-  ...props
-}) => {
-  const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width={size}
-      height={size}
-      color={color}
-      fill="none"
-      {...props}
-    >
-      <g dangerouslySetInnerHTML={{ __html: svgs[activeWeight] }} />
-    </svg>
-  );
+const PaperBin = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+    const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
+   return (
+  react_1.default.createElement(
+    "svg",
+    Object.assign(
+      {
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size,
+        color: color,      
+        fill: "none"      
+      },
+      props
+    ),
+    react_1.default.createElement("g", {
+      dangerouslySetInnerHTML: { __html: svgs[activeWeight] }
+    })
+  )
+);
 };
+exports.PaperBin = PaperBin;

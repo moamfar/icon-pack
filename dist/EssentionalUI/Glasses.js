@@ -1,6 +1,10 @@
-
-import React from "react";
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Glasses = void 0;
+const react_1 = __importDefault(require("react"));
 const svgs = {
   "broken": `
 <path d="M22 16C22 18.2091 20.2091 20 18 20C15.7909 20 14 18.2091 14 16C14 13.7909 15.7909 12 18 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -24,25 +28,25 @@ const svgs = {
 </svg>
 `,
 };
-
-export const Glasses = ({
-  size = 24,
-  color = "currentColor",
-  weight = "outline",
-  ...props
-}) => {
-  const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width={size}
-      height={size}
-      color={color}
-      fill="none"
-      {...props}
-    >
-      <g dangerouslySetInnerHTML={{ __html: svgs[activeWeight] }} />
-    </svg>
-  );
+const Glasses = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+    const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
+   return (
+  react_1.default.createElement(
+    "svg",
+    Object.assign(
+      {
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size,
+        color: color,      
+        fill: "none"      
+      },
+      props
+    ),
+    react_1.default.createElement("g", {
+      dangerouslySetInnerHTML: { __html: svgs[activeWeight] }
+    })
+  )
+);
 };
+exports.Glasses = Glasses;

@@ -1,6 +1,10 @@
-
-import React from "react";
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.MirrorLeft = void 0;
+const react_1 = __importDefault(require("react"));
 const svgs = {
   "broken": `
 <path d="M3 12C3 16.2426 3 18.364 4.31802 19.682C5.63604 21 7.75736 21 12 21M12 3C7.75736 3 5.63604 3 4.31802 4.31802C3.50241 5.13363 3.19151 6.25685 3.073 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -24,25 +28,25 @@ const svgs = {
 </svg>
 `,
 };
-
-export const MirrorLeft = ({
-  size = 24,
-  color = "currentColor",
-  weight = "outline",
-  ...props
-}) => {
-  const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width={size}
-      height={size}
-      color={color}
-      fill="none"
-      {...props}
-    >
-      <g dangerouslySetInnerHTML={{ __html: svgs[activeWeight] }} />
-    </svg>
-  );
+const MirrorLeft = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+    const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
+   return (
+  react_1.default.createElement(
+    "svg",
+    Object.assign(
+      {
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size,
+        color: color,      
+        fill: "none"      
+      },
+      props
+    ),
+    react_1.default.createElement("g", {
+      dangerouslySetInnerHTML: { __html: svgs[activeWeight] }
+    })
+  )
+);
 };
+exports.MirrorLeft = MirrorLeft;

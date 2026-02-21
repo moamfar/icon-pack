@@ -1,6 +1,10 @@
-
-import React from "react";
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ServerSquare = void 0;
+const react_1 = __importDefault(require("react"));
 const svgs = {
   "broken": `
 <path d="M14 3C17.7712 3 19.6569 3 20.8284 4.17157C22 5.34315 22 7.22876 22 11V13C22 16.7712 22 18.6569 20.8284 19.8284C19.6569 21 17.7712 21 14 21H10C6.22876 21 4.34315 21 3.17157 19.8284C2 18.6569 2 16.7712 2 13V11C2 7.22876 2 5.34315 3.17157 4.17157C4.34315 3 6.22876 3 10 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -36,25 +40,25 @@ const svgs = {
 </svg>
 `,
 };
-
-export const ServerSquare = ({
-  size = 24,
-  color = "currentColor",
-  weight = "outline",
-  ...props
-}) => {
-  const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width={size}
-      height={size}
-      color={color}
-      fill="none"
-      {...props}
-    >
-      <g dangerouslySetInnerHTML={{ __html: svgs[activeWeight] }} />
-    </svg>
-  );
+const ServerSquare = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+    const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
+   return (
+  react_1.default.createElement(
+    "svg",
+    Object.assign(
+      {
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size,
+        color: color,      
+        fill: "none"      
+      },
+      props
+    ),
+    react_1.default.createElement("g", {
+      dangerouslySetInnerHTML: { __html: svgs[activeWeight] }
+    })
+  )
+);
 };
+exports.ServerSquare = ServerSquare;

@@ -1,4 +1,4 @@
-export { Bill } from "./Bill";
+export { BillList } from "./BillList";
 export { ChecklistMinimalistic } from "./ChecklistMinimalistic";
 export { Checklist } from "./Checklist";
 export { ListArrowDownMinimalistic } from "./ListArrowDownMinimalistic";

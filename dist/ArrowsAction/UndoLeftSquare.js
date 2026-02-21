@@ -1,6 +1,10 @@
-
-import React from "react";
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.UndoLeftSquare = void 0;
+const react_1 = __importDefault(require("react"));
 const svgs = {
   "broken": `
 <path d="M6.5 9.49977H14.0385C15.4063 9.49977 16.0902 9.49977 16.5859 9.82025C16.8235 9.97389 17.0259 10.1762 17.1795 10.4139C17.5 10.9095 17.5 11.5935 17.5 12.9613C17.5 14.3292 17.5 15.0131 17.1795 15.5087C17.0259 15.7464 16.8235 15.9487 16.5859 16.1024C16.0902 16.4229 15.4063 16.4229 14.0385 16.4229H9.5M6.5 9.49977L8.75 7.42285M6.5 9.49977L8.75 11.5767" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -22,25 +26,25 @@ const svgs = {
 </svg>
 `,
 };
-
-export const UndoLeftSquare = ({
-  size = 24,
-  color = "currentColor",
-  weight = "outline",
-  ...props
-}) => {
-  const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width={size}
-      height={size}
-      color={color}
-      fill="none"
-      {...props}
-    >
-      <g dangerouslySetInnerHTML={{ __html: svgs[activeWeight] }} />
-    </svg>
-  );
+const UndoLeftSquare = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+    const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
+   return (
+  react_1.default.createElement(
+    "svg",
+    Object.assign(
+      {
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size,
+        color: color,      
+        fill: "none"      
+      },
+      props
+    ),
+    react_1.default.createElement("g", {
+      dangerouslySetInnerHTML: { __html: svgs[activeWeight] }
+    })
+  )
+);
 };
+exports.UndoLeftSquare = UndoLeftSquare;

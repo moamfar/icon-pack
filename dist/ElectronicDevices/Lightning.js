@@ -1,6 +1,10 @@
-
-import React from "react";
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Lightning = void 0;
+const react_1 = __importDefault(require("react"));
 const svgs = {
   "broken": `
 <path d="M17.9391 17.6364C17.8624 18.4046 17.689 18.9217 17.2971 19.3077C16.5941 20 15.4627 20 13.2 20H10.8C8.53726 20 7.40589 20 6.70294 19.3077C6 18.6154 6 17.5012 6 15.2727V12.7273C6 10.4988 6 9.38459 6.70294 8.69229C7.40589 8 8.53726 8 10.8 8H13.2C15.4627 8 16.5941 8 17.2971 8.69229C18 9.38459 18 10.4988 18 12.7273V13.9091" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -31,25 +35,25 @@ const svgs = {
 </svg>
 `,
 };
-
-export const Lightning = ({
-  size = 24,
-  color = "currentColor",
-  weight = "outline",
-  ...props
-}) => {
-  const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width={size}
-      height={size}
-      color={color}
-      fill="none"
-      {...props}
-    >
-      <g dangerouslySetInnerHTML={{ __html: svgs[activeWeight] }} />
-    </svg>
-  );
+const Lightning = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+    const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
+   return (
+  react_1.default.createElement(
+    "svg",
+    Object.assign(
+      {
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size,
+        color: color,      
+        fill: "none"      
+      },
+      props
+    ),
+    react_1.default.createElement("g", {
+      dangerouslySetInnerHTML: { __html: svgs[activeWeight] }
+    })
+  )
+);
 };
+exports.Lightning = Lightning;

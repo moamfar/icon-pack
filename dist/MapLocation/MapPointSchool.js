@@ -1,6 +1,10 @@
-
-import React from "react";
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.MapPointSchool = void 0;
+const react_1 = __importDefault(require("react"));
 const svgs = {
   "broken": `
 <path d="M11.224 6.63627C11.7213 6.45458 12.2787 6.45458 12.776 6.63627L15.1179 7.49181C15.6274 7.67791 15.6274 8.3221 15.1179 8.5082L12.776 9.36373C12.2787 9.54542 11.7213 9.54542 11.224 9.36373L8.88206 8.50819C8.37265 8.32209 8.37265 7.6779 8.88206 7.4918L11.224 6.63627Z" stroke="currentColor" stroke-width="1.5"/>
@@ -24,25 +28,25 @@ const svgs = {
 </svg>
 `,
 };
-
-export const MapPointSchool = ({
-  size = 24,
-  color = "currentColor",
-  weight = "outline",
-  ...props
-}) => {
-  const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width={size}
-      height={size}
-      color={color}
-      fill="none"
-      {...props}
-    >
-      <g dangerouslySetInnerHTML={{ __html: svgs[activeWeight] }} />
-    </svg>
-  );
+const MapPointSchool = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+    const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
+   return (
+  react_1.default.createElement(
+    "svg",
+    Object.assign(
+      {
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size,
+        color: color,      
+        fill: "none"      
+      },
+      props
+    ),
+    react_1.default.createElement("g", {
+      dangerouslySetInnerHTML: { __html: svgs[activeWeight] }
+    })
+  )
+);
 };
+exports.MapPointSchool = MapPointSchool;

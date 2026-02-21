@@ -1,6 +1,10 @@
-
-import React from "react";
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.FolderFavouriteBookmark = void 0;
+const react_1 = __importDefault(require("react"));
 const svgs = {
   "broken": `
 <path d="M18 6V10.8528C18 11.1429 18 11.2879 17.9051 11.3465C17.8103 11.4051 17.6806 11.3403 17.4211 11.2106L16.1789 10.5894C16.0911 10.5456 16.0472 10.5236 16 10.5236C15.9528 10.5236 15.9089 10.5456 15.8211 10.5894L14.5789 11.2106C14.3194 11.3403 14.1897 11.4051 14.0949 11.3465C14 11.2879 14 11.1429 14 10.8528V6" stroke="currentColor" stroke-width="1.5"/>
@@ -22,25 +26,25 @@ const svgs = {
 </svg>
 `,
 };
-
-export const FolderFavouriteBookmark = ({
-  size = 24,
-  color = "currentColor",
-  weight = "outline",
-  ...props
-}) => {
-  const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width={size}
-      height={size}
-      color={color}
-      fill="none"
-      {...props}
-    >
-      <g dangerouslySetInnerHTML={{ __html: svgs[activeWeight] }} />
-    </svg>
-  );
+const FolderFavouriteBookmark = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+    const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
+   return (
+  react_1.default.createElement(
+    "svg",
+    Object.assign(
+      {
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size,
+        color: color,      
+        fill: "none"      
+      },
+      props
+    ),
+    react_1.default.createElement("g", {
+      dangerouslySetInnerHTML: { __html: svgs[activeWeight] }
+    })
+  )
+);
 };
+exports.FolderFavouriteBookmark = FolderFavouriteBookmark;

@@ -1,6 +1,10 @@
-
-import React from "react";
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.BoltCircle = void 0;
+const react_1 = __importDefault(require("react"));
 const svgs = {
   "broken": `
 <path d="M9.21236 10.1735L11.2274 8.56883C12.5299 7.53158 13.1812 7.01295 13.5905 7.2691C13.9999 7.52526 13.7873 8.31843 13.3623 9.90479L13.3222 10.0544C13.1689 10.6265 13.0922 10.9126 13.227 11.141L13.2341 11.1529C13.3738 11.3786 13.6716 11.4584 14.2671 11.618C15.3387 11.9051 15.8746 12.0487 15.9686 12.4222C15.9701 12.4284 15.9716 12.4346 15.9729 12.4408C16.0554 12.8167 15.6327 13.1533 14.7873 13.8265L12.7723 15.4312C11.4697 16.4684 10.8185 16.987 10.4091 16.7309C9.99979 16.4747 10.2123 15.6815 10.6374 14.0952L10.6775 13.9457C10.8308 13.3735 10.9075 13.0874 10.7727 12.859L10.7656 12.8471C10.6259 12.6214 10.3281 12.5416 9.73259 12.382C8.66096 12.0949 8.12514 11.9513 8.03114 11.5778C8.02958 11.5716 8.02812 11.5654 8.02675 11.5592C7.94424 11.1833 8.36695 10.8467 9.21236 10.1735Z" stroke="currentColor" stroke-width="1.5"/>
@@ -22,25 +26,25 @@ const svgs = {
 </svg>
 `,
 };
-
-export const BoltCircle = ({
-  size = 24,
-  color = "currentColor",
-  weight = "outline",
-  ...props
-}) => {
-  const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width={size}
-      height={size}
-      color={color}
-      fill="none"
-      {...props}
-    >
-      <g dangerouslySetInnerHTML={{ __html: svgs[activeWeight] }} />
-    </svg>
-  );
+const BoltCircle = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+    const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
+   return (
+  react_1.default.createElement(
+    "svg",
+    Object.assign(
+      {
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size,
+        color: color,      
+        fill: "none"      
+      },
+      props
+    ),
+    react_1.default.createElement("g", {
+      dangerouslySetInnerHTML: { __html: svgs[activeWeight] }
+    })
+  )
+);
 };
+exports.BoltCircle = BoltCircle;

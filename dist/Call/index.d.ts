@@ -16,6 +16,6 @@ export { PhoneCallingRounded } from "./PhoneCallingRounded";
 export { PhoneCalling } from "./PhoneCalling";
 export { PhoneRounded } from "./PhoneRounded";
 export { Phone } from "./Phone";
-export { RecordCircle } from "./RecordCircle";
+export { RecordCircleCall } from "./RecordCircleCall";
 export { RecordMinimalistic } from "./RecordMinimalistic";
 export { RecordSquare } from "./RecordSquare";

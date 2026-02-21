@@ -1,6 +1,10 @@
-
-import React from "react";
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Dialog = void 0;
+const react_1 = __importDefault(require("react"));
 const svgs = {
   "broken": `
 <path d="M14 7.07026C12.8233 6.38958 11.4571 6 10 6C5.58172 6 2 9.58172 2 14C2 15.2797 2.30049 16.4893 2.83477 17.562C2.97675 17.847 3.02401 18.1729 2.94169 18.4805L2.46521 20.2613C2.25836 21.0344 2.96561 21.7416 3.73868 21.5348L5.51951 21.0583C5.82715 20.976 6.15297 21.0233 6.43802 21.1652C7.51069 21.6995 8.72025 22 10 22C14.4183 22 18 18.4183 18 14C18 12.5429 17.6104 11.1767 16.9297 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -26,25 +30,25 @@ const svgs = {
 </svg>
 `,
 };
-
-export const Dialog = ({
-  size = 24,
-  color = "currentColor",
-  weight = "outline",
-  ...props
-}) => {
-  const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width={size}
-      height={size}
-      color={color}
-      fill="none"
-      {...props}
-    >
-      <g dangerouslySetInnerHTML={{ __html: svgs[activeWeight] }} />
-    </svg>
-  );
+const Dialog = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+    const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
+   return (
+  react_1.default.createElement(
+    "svg",
+    Object.assign(
+      {
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size,
+        color: color,      
+        fill: "none"      
+      },
+      props
+    ),
+    react_1.default.createElement("g", {
+      dangerouslySetInnerHTML: { __html: svgs[activeWeight] }
+    })
+  )
+);
 };
+exports.Dialog = Dialog;

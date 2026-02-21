@@ -1,5 +1,7 @@
-export { HandHeart } from "./HandHeart.js";
-export { HandMoney } from "./HandMoney.js";
-export { HandPills } from "./HandPills.js";
-export { HandShake } from "./HandShake.js";
-export { HandStars } from "./HandStars.js";
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.HandHeart = require('./HandHeart').HandHeart;
+exports.HandMoney = require('./HandMoney').HandMoney;
+exports.HandPills = require('./HandPills').HandPills;
+exports.HandShake = require('./HandShake').HandShake;
+exports.HandStars = require('./HandStars').HandStars;

@@ -54,7 +54,7 @@ export { QuitFullScreenCircle } from "./QuitFullScreenCircle";
 export { QuitFullScreenSquare } from "./QuitFullScreenSquare";
 export { QuitFullScreen } from "./QuitFullScreen";
 export { QuitPip } from "./QuitPip";
-export { RecordCircle } from "./RecordCircle";
+export { RecordCircleVideoAudioSound } from "./RecordCircleVideoAudioSound";
 export { Record } from "./Record";
 export { Reel2 } from "./Reel2";
 export { Reel } from "./Reel";

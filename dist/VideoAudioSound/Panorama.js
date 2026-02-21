@@ -1,6 +1,10 @@
-
-import React from "react";
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Panorama = void 0;
+const react_1 = __importDefault(require("react"));
 const svgs = {
   "broken": `
 <path d="M22 5.85964C22 5.06508 21.2094 4.33374 19.883 3.75279C18.7083 3.23834 17.5 4.21963 17.5 5.50199V8.71946M22 5.85964C22 7.05487 20.2111 8.10705 17.5 8.71946M22 5.85964V8.99982M2 5.85964C2 5.06508 2.79055 4.33374 4.11705 3.75279C5.29169 3.23834 6.5 4.21963 6.5 5.50199V8.71946M2 5.85964V18.5761C2 20.467 6.47715 21.9998 12 21.9998C17.5228 21.9998 22 20.467 22 18.5761V12.9998M2 5.85964C2 7.05487 3.78889 8.10705 6.5 8.71946M6.5 8.71946C8.0779 9.07589 9.96818 9.28335 12 9.28335C14.0318 9.28335 15.9221 9.07589 17.5 8.71946" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -23,25 +27,25 @@ const svgs = {
 </svg>
 `,
 };
-
-export const Panorama = ({
-  size = 24,
-  color = "currentColor",
-  weight = "outline",
-  ...props
-}) => {
-  const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width={size}
-      height={size}
-      color={color}
-      fill="none"
-      {...props}
-    >
-      <g dangerouslySetInnerHTML={{ __html: svgs[activeWeight] }} />
-    </svg>
-  );
+const Panorama = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+    const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
+   return (
+  react_1.default.createElement(
+    "svg",
+    Object.assign(
+      {
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size,
+        color: color,      
+        fill: "none"      
+      },
+      props
+    ),
+    react_1.default.createElement("g", {
+      dangerouslySetInnerHTML: { __html: svgs[activeWeight] }
+    })
+  )
+);
 };
+exports.Panorama = Panorama;

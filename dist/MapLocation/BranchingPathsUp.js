@@ -1,6 +1,10 @@
-
-import React from "react";
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.BranchingPathsUp = void 0;
+const react_1 = __importDefault(require("react"));
 const svgs = {
   "broken": `
 <path d="M11.25 18C11.25 18.4142 11.5858 18.75 12 18.75C12.4142 18.75 12.75 18.4142 12.75 18H11.25ZM18 8L18.5303 8.53033C18.8232 8.23744 18.8232 7.76256 18.5303 7.46967L18 8ZM17.0303 5.96967C16.7374 5.67678 16.2626 5.67678 15.9697 5.96967C15.6768 6.26256 15.6768 6.73744 15.9697 7.03033L17.0303 5.96967ZM15.9697 8.96967C15.6768 9.26256 15.6768 9.73744 15.9697 10.0303C16.2626 10.3232 16.7374 10.3232 17.0303 10.0303L15.9697 8.96967ZM12.75 18V12H11.25V18H12.75ZM16 8.75H18V7.25H16V8.75ZM18.5303 7.46967L17.0303 5.96967L15.9697 7.03033L17.4697 8.53033L18.5303 7.46967ZM17.4697 7.46967L15.9697 8.96967L17.0303 10.0303L18.5303 8.53033L17.4697 7.46967ZM12.75 12C12.75 10.2051 14.2051 8.75 16 8.75V7.25C13.3766 7.25 11.25 9.37665 11.25 12H12.75Z" fill="currentColor"/>
@@ -23,25 +27,25 @@ const svgs = {
 </svg>
 `,
 };
-
-export const BranchingPathsUp = ({
-  size = 24,
-  color = "currentColor",
-  weight = "outline",
-  ...props
-}) => {
-  const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width={size}
-      height={size}
-      color={color}
-      fill="none"
-      {...props}
-    >
-      <g dangerouslySetInnerHTML={{ __html: svgs[activeWeight] }} />
-    </svg>
-  );
+const BranchingPathsUp = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+    const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
+   return (
+  react_1.default.createElement(
+    "svg",
+    Object.assign(
+      {
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size,
+        color: color,      
+        fill: "none"      
+      },
+      props
+    ),
+    react_1.default.createElement("g", {
+      dangerouslySetInnerHTML: { __html: svgs[activeWeight] }
+    })
+  )
+);
 };
+exports.BranchingPathsUp = BranchingPathsUp;

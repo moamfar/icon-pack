@@ -23,7 +23,7 @@ export { MoonSleep } from "./MoonSleep";
 export { MoonStars } from "./MoonStars";
 export { Moon } from "./Moon";
 export { Snowflake } from "./Snowflake";
-export { Stars } from "./Stars";
+export { StarsWeather } from "./StarsWeather";
 export { Sun2 } from "./Sun2";
 export { SunFog } from "./SunFog";
 export { Sun } from "./Sun";

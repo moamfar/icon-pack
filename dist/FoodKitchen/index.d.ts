@@ -5,7 +5,7 @@ export { ChefHat } from "./ChefHat";
 export { Corkscrew } from "./Corkscrew";
 export { CupHot } from "./CupHot";
 export { CupPaper } from "./CupPaper";
-export { Cup } from "./Cup";
+export { CupFoodKitchen } from "./CupFoodKitchen";
 export { DonutBitten } from "./DonutBitten";
 export { Donut } from "./Donut";
 export { Ladle } from "./Ladle";

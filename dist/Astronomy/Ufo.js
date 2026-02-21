@@ -1,6 +1,10 @@
-
-import React from "react";
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Ufo = void 0;
+const react_1 = __importDefault(require("react"));
 const svgs = {
   "broken": `
 <path d="M2.73145 10C3.60699 9.25047 5.00469 8.62664 6.72703 8.21094M2.73145 13.6524C4.35491 15.0423 7.77368 15.9999 11.7285 15.9999C17.253 15.9999 21.7314 14.1313 21.7314 11.8262C21.7314 10.6587 20.5826 9.60321 18.7308 8.84573C18.1323 8.6009 17.4603 8.38721 16.73 8.21094M11.7287 10C8.53794 10 7.34123 9.4684 6.92702 9.18039C6.78146 9.07918 6.72725 8.90601 6.72725 8.72876C6.72725 6.11714 8.84501 4 11.4574 4H12C14.6124 4 16.7302 6.11714 16.7302 8.72876C16.7302 8.90601 16.6757 9.07943 16.5301 9.18061C16.249 9.37597 15.608 9.68323 14.2295 9.86075" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -30,25 +34,25 @@ const svgs = {
 </svg>
 `,
 };
-
-export const Ufo = ({
-  size = 24,
-  color = "currentColor",
-  weight = "outline",
-  ...props
-}) => {
-  const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width={size}
-      height={size}
-      color={color}
-      fill="none"
-      {...props}
-    >
-      <g dangerouslySetInnerHTML={{ __html: svgs[activeWeight] }} />
-    </svg>
-  );
+const Ufo = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+    const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
+   return (
+  react_1.default.createElement(
+    "svg",
+    Object.assign(
+      {
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size,
+        color: color,      
+        fill: "none"      
+      },
+      props
+    ),
+    react_1.default.createElement("g", {
+      dangerouslySetInnerHTML: { __html: svgs[activeWeight] }
+    })
+  )
+);
 };
+exports.Ufo = Ufo;

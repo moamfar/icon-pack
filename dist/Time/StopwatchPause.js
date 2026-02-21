@@ -1,6 +1,10 @@
-
-import React from "react";
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.StopwatchPause = void 0;
+const react_1 = __importDefault(require("react"));
 const svgs = {
   "broken": `
 <path d="M8 10.5C8 10.0341 8 9.80109 8.07612 9.61732C8.17761 9.37229 8.37229 9.17761 8.61732 9.07612C8.80109 9 9.03406 9 9.5 9C9.96594 9 10.1989 9 10.3827 9.07612C10.6277 9.17761 10.8224 9.37229 10.9239 9.61732C11 9.80109 11 10.0341 11 10.5V15.5C11 15.9659 11 16.1989 10.9239 16.3827C10.8224 16.6277 10.6277 16.8224 10.3827 16.9239C10.1989 17 9.96594 17 9.5 17C9.03406 17 8.80109 17 8.61732 16.9239C8.37229 16.8224 8.17761 16.6277 8.07612 16.3827C8 16.1989 8 15.9659 8 15.5V10.5Z" stroke="currentColor" stroke-width="1.5"/>
@@ -28,25 +32,25 @@ const svgs = {
 </svg>
 `,
 };
-
-export const StopwatchPause = ({
-  size = 24,
-  color = "currentColor",
-  weight = "outline",
-  ...props
-}) => {
-  const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width={size}
-      height={size}
-      color={color}
-      fill="none"
-      {...props}
-    >
-      <g dangerouslySetInnerHTML={{ __html: svgs[activeWeight] }} />
-    </svg>
-  );
+const StopwatchPause = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+    const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
+   return (
+  react_1.default.createElement(
+    "svg",
+    Object.assign(
+      {
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size,
+        color: color,      
+        fill: "none"      
+      },
+      props
+    ),
+    react_1.default.createElement("g", {
+      dangerouslySetInnerHTML: { __html: svgs[activeWeight] }
+    })
+  )
+);
 };
+exports.StopwatchPause = StopwatchPause;

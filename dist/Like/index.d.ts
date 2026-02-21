@@ -14,4 +14,4 @@ export { MedalStarCircle } from "./MedalStarCircle";
 export { MedalStarSquare } from "./MedalStarSquare";
 export { MedalStar } from "./MedalStar";
 export { StarShine } from "./StarShine";
-export { Star } from "./Star";
+export { StarLike } from "./StarLike";

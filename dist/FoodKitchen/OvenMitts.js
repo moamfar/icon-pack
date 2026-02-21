@@ -1,6 +1,10 @@
-
-import React from "react";
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.OvenMitts = void 0;
+const react_1 = __importDefault(require("react"));
 const svgs = {
   "broken": `
 <path d="M9.13256 17.0254C9.42815 17.3156 9.903 17.3112 10.1932 17.0156C10.4833 16.72 10.479 16.2452 10.1834 15.955L9.13256 17.0254ZM12.4973 18.2174C12.1986 17.9304 11.7238 17.9399 11.4369 18.2386C11.1499 18.5373 11.1593 19.0121 11.458 19.299L12.4973 18.2174ZM10.1834 15.955L4.54396 10.4189L3.49315 11.4893L9.13256 17.0254L10.1834 15.955ZM13.817 19.4855L12.4973 18.2174L11.458 19.299L12.7777 20.5671L13.817 19.4855Z" fill="currentColor"/>
@@ -22,25 +26,25 @@ const svgs = {
 </svg>
 `,
 };
-
-export const OvenMitts = ({
-  size = 24,
-  color = "currentColor",
-  weight = "outline",
-  ...props
-}) => {
-  const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width={size}
-      height={size}
-      color={color}
-      fill="none"
-      {...props}
-    >
-      <g dangerouslySetInnerHTML={{ __html: svgs[activeWeight] }} />
-    </svg>
-  );
+const OvenMitts = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+    const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
+   return (
+  react_1.default.createElement(
+    "svg",
+    Object.assign(
+      {
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size,
+        color: color,      
+        fill: "none"      
+      },
+      props
+    ),
+    react_1.default.createElement("g", {
+      dangerouslySetInnerHTML: { __html: svgs[activeWeight] }
+    })
+  )
+);
 };
+exports.OvenMitts = OvenMitts;

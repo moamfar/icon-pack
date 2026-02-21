@@ -1,6 +1,10 @@
-
-import React from "react";
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Delivery = void 0;
+const react_1 = __importDefault(require("react"));
 const svgs = {
   "broken": `
 <path d="M7.50626 15.2648C7.61657 15.6641 8.02965 15.8983 8.4289 15.788C8.82816 15.6777 9.06241 15.2646 8.9521 14.8654L7.50626 15.2648ZM6.07692 7.27458L6.79984 7.07486V7.07486L6.07692 7.27458ZM4.7037 5.92011L4.50319 6.64281V6.64281L4.7037 5.92011ZM3.20051 4.72472C2.80138 4.61398 2.38804 4.84777 2.2773 5.24691C2.16656 5.64604 2.40035 6.05938 2.79949 6.17012L3.20051 4.72472ZM20.1886 15.7256C20.5895 15.6214 20.8301 15.212 20.7259 14.8111C20.6217 14.4102 20.2123 14.1696 19.8114 14.2738L20.1886 15.7256ZM10.1978 17.559C10.5074 18.6796 9.82778 19.862 8.62389 20.1749L9.00118 21.6266C10.9782 21.1128 12.1863 19.124 11.6436 17.1595L10.1978 17.559ZM8.62389 20.1749C7.41216 20.4898 6.19622 19.7865 5.88401 18.6564L4.43817 19.0558C4.97829 21.0108 7.03196 22.1384 9.00118 21.6266L8.62389 20.1749ZM5.88401 18.6564C5.57441 17.5357 6.254 16.3533 7.4579 16.0405L7.08061 14.5887C5.10356 15.1025 3.89544 17.0913 4.43817 19.0558L5.88401 18.6564ZM7.4579 16.0405C8.66962 15.7255 9.88556 16.4289 10.1978 17.559L11.6436 17.1595C11.1035 15.2045 9.04982 14.0769 7.08061 14.5887L7.4579 16.0405ZM8.9521 14.8654L6.79984 7.07486L5.354 7.47429L7.50626 15.2648L8.9521 14.8654ZM4.90421 5.19741L3.20051 4.72472L2.79949 6.17012L4.50319 6.64281L4.90421 5.19741ZM6.79984 7.07486C6.54671 6.15862 5.8211 5.45179 4.90421 5.19741L4.50319 6.64281C4.92878 6.76089 5.24573 7.08238 5.354 7.47429L6.79984 7.07486ZM11.1093 18.0851L20.1886 15.7256L19.8114 14.2738L10.732 16.6334L11.1093 18.0851Z" fill="currentColor"/>
@@ -23,25 +27,25 @@ const svgs = {
 </svg>
 `,
 };
-
-export const Delivery = ({
-  size = 24,
-  color = "currentColor",
-  weight = "outline",
-  ...props
-}) => {
-  const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width={size}
-      height={size}
-      color={color}
-      fill="none"
-      {...props}
-    >
-      <g dangerouslySetInnerHTML={{ __html: svgs[activeWeight] }} />
-    </svg>
-  );
+const Delivery = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+    const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
+   return (
+  react_1.default.createElement(
+    "svg",
+    Object.assign(
+      {
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size,
+        color: color,      
+        fill: "none"      
+      },
+      props
+    ),
+    react_1.default.createElement("g", {
+      dangerouslySetInnerHTML: { __html: svgs[activeWeight] }
+    })
+  )
+);
 };
+exports.Delivery = Delivery;

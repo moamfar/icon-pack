@@ -1,6 +1,10 @@
-
-import React from "react";
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.HighQuality = void 0;
+const react_1 = __importDefault(require("react"));
 const svgs = {
   "broken": `
 <path d="M6 8V15.619M10.8148 8V15.619M6 12H10.8148M19 16L17.0741 14.4762M16.1111 15.619C15.6637 15.619 15.4399 15.619 15.2539 15.5898C14.4899 15.4695 13.8927 14.997 13.7407 14.3925C13.7037 14.2453 13.7037 14.0683 13.7037 13.7143V9.90476C13.7037 9.55074 13.7037 9.37373 13.7407 9.22653C13.8927 8.62205 14.4899 8.14952 15.2539 8.02928C15.4399 8 15.6637 8 16.1111 8C16.5586 8 16.7823 8 16.9683 8.02928C17.7323 8.14952 18.3295 8.62205 18.4815 9.22653C18.5185 9.37373 18.5185 9.55074 18.5185 9.90476V13.7143C18.5185 14.0683 18.5185 14.2453 18.4815 14.3925C18.3295 14.997 17.7323 15.4695 16.9683 15.5898C16.7823 15.619 16.5586 15.619 16.1111 15.619Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -23,25 +27,25 @@ const svgs = {
 </svg>
 `,
 };
-
-export const HighQuality = ({
-  size = 24,
-  color = "currentColor",
-  weight = "outline",
-  ...props
-}) => {
-  const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width={size}
-      height={size}
-      color={color}
-      fill="none"
-      {...props}
-    >
-      <g dangerouslySetInnerHTML={{ __html: svgs[activeWeight] }} />
-    </svg>
-  );
+const HighQuality = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+    const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
+   return (
+  react_1.default.createElement(
+    "svg",
+    Object.assign(
+      {
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size,
+        color: color,      
+        fill: "none"      
+      },
+      props
+    ),
+    react_1.default.createElement("g", {
+      dangerouslySetInnerHTML: { __html: svgs[activeWeight] }
+    })
+  )
+);
 };
+exports.HighQuality = HighQuality;

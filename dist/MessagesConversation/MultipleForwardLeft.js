@@ -1,6 +1,10 @@
-
-import React from "react";
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.MultipleForwardLeft = void 0;
+const react_1 = __importDefault(require("react"));
 const svgs = {
   "broken": `
 <path d="M18.0002 10.1318C16.3869 8.97769 14.5456 8.57172 13.0003 8.57172V6.22714C13.0003 5.26915 13.0003 4.79015 12.7052 4.6576C12.41 4.52505 12.052 4.84327 11.336 5.47973L7.36369 9.01066C5.79506 10.405 5.01074 11.1022 5.01074 12.0003C5.01074 12.8984 5.79506 13.5956 7.36369 14.9899L11.336 18.5209C12.052 19.1573 12.41 19.4755 12.7052 19.343C13.0003 19.2104 13.0003 18.7314 13.0003 17.7735V15.4289C16.6003 15.4289 20.5003 17.1432 22.0003 20.0003C22.0003 17.5686 21.6231 15.622 21.0002 14.0744" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -24,25 +28,25 @@ const svgs = {
 </svg>
 `,
 };
-
-export const MultipleForwardLeft = ({
-  size = 24,
-  color = "currentColor",
-  weight = "outline",
-  ...props
-}) => {
-  const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width={size}
-      height={size}
-      color={color}
-      fill="none"
-      {...props}
-    >
-      <g dangerouslySetInnerHTML={{ __html: svgs[activeWeight] }} />
-    </svg>
-  );
+const MultipleForwardLeft = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+    const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
+   return (
+  react_1.default.createElement(
+    "svg",
+    Object.assign(
+      {
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size,
+        color: color,      
+        fill: "none"      
+      },
+      props
+    ),
+    react_1.default.createElement("g", {
+      dangerouslySetInnerHTML: { __html: svgs[activeWeight] }
+    })
+  )
+);
 };
+exports.MultipleForwardLeft = MultipleForwardLeft;

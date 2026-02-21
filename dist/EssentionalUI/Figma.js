@@ -1,6 +1,10 @@
-
-import React from "react";
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Figma = void 0;
+const react_1 = __importDefault(require("react"));
 const svgs = {
   "broken": `
 <path d="M12.0002 8.66667H8.66683M12.0002 8.66667V2H8.66683C6.82588 2 5.3335 3.49238 5.3335 5.33333C5.3335 7.17428 6.82588 8.66667 8.66683 8.66667M12.0002 8.66667V15.3333H8.66683M12.0002 8.66667L15.3335 8.66667M8.66683 8.66667C6.82588 8.66667 5.3335 10.1591 5.3335 12C5.3335 13.8409 6.82588 15.3333 8.66683 15.3333M8.66683 15.3333C6.82588 15.3333 5.3335 16.8257 5.3335 18.6667C5.3335 20.5076 6.82588 22 8.66683 22C10.5078 22 12.0002 20.5076 12.0002 18.6667M15.3335 8.66667C13.4925 8.66667 12.0002 10.1591 12.0002 12C12.0002 13.8409 13.4925 15.3333 15.3335 15.3333C17.1744 15.3333 18.6668 13.8409 18.6668 12C18.6668 10.1591 17.1744 8.66667 15.3335 8.66667ZM15.3335 8.66667C17.1744 8.66667 18.6668 7.17428 18.6668 5.33333C18.6668 3.49238 17.1744 2 15.3335 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -23,25 +27,25 @@ const svgs = {
 </svg>
 `,
 };
-
-export const Figma = ({
-  size = 24,
-  color = "currentColor",
-  weight = "outline",
-  ...props
-}) => {
-  const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width={size}
-      height={size}
-      color={color}
-      fill="none"
-      {...props}
-    >
-      <g dangerouslySetInnerHTML={{ __html: svgs[activeWeight] }} />
-    </svg>
-  );
+const Figma = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+    const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
+   return (
+  react_1.default.createElement(
+    "svg",
+    Object.assign(
+      {
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size,
+        color: color,      
+        fill: "none"      
+      },
+      props
+    ),
+    react_1.default.createElement("g", {
+      dangerouslySetInnerHTML: { __html: svgs[activeWeight] }
+    })
+  )
+);
 };
+exports.Figma = Figma;

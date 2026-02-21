@@ -1,6 +1,10 @@
-
-import React from "react";
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.HeartPulse2 = void 0;
+const react_1 = __importDefault(require("react"));
 const svgs = {
   "broken": `
 <path d="M21 12.0001H18.6361C17.9781 12.0001 17.6491 12.0001 17.3578 12.1298C17.0665 12.2596 16.8463 12.5042 16.4059 12.9935L15.3767 14.1371C15.0154 14.5385 14.8348 14.7392 14.6057 14.7342C14.3766 14.7293 14.2049 14.5212 13.8616 14.105L10.3334 9.82844C10.0133 9.44041 9.85321 9.2464 9.63599 9.23335C9.41877 9.2203 9.23663 9.39376 8.87237 9.74068L7.36897 11.1725C6.93986 11.5812 6.7253 11.7855 6.45709 11.8928C6.18887 12.0001 5.89258 12.0001 5.3 12.0001H3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -22,25 +26,25 @@ const svgs = {
 </svg>
 `,
 };
-
-export const HeartPulse2 = ({
-  size = 24,
-  color = "currentColor",
-  weight = "outline",
-  ...props
-}) => {
-  const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width={size}
-      height={size}
-      color={color}
-      fill="none"
-      {...props}
-    >
-      <g dangerouslySetInnerHTML={{ __html: svgs[activeWeight] }} />
-    </svg>
-  );
+const HeartPulse2 = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+    const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
+   return (
+  react_1.default.createElement(
+    "svg",
+    Object.assign(
+      {
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size,
+        color: color,      
+        fill: "none"      
+      },
+      props
+    ),
+    react_1.default.createElement("g", {
+      dangerouslySetInnerHTML: { __html: svgs[activeWeight] }
+    })
+  )
+);
 };
+exports.HeartPulse2 = HeartPulse2;

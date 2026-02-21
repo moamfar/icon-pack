@@ -1,6 +1,10 @@
-
-import React from "react";
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CupHot = void 0;
+const react_1 = __importDefault(require("react"));
 const svgs = {
   "broken": `
 <path d="M3.62662 16.3991C3.80361 19.054 3.89211 20.3815 4.75712 21.1907C5.62212 22 6.95253 22 9.61333 22H10.3867C13.0475 22 14.3779 22 15.2429 21.1907C16.1079 20.3815 16.1964 19.054 16.3734 16.3991L16.7156 11.2661C16.8489 9.26687 16.9155 8.26726 16.3227 7.63363C15.7299 7 14.7281 7 12.7245 7H7.27555C5.27191 7 4.27009 7 3.67729 7.63363C3.08449 8.26726 3.15113 9.26687 3.28441 11.2661L3.34221 12.133" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -26,25 +30,25 @@ const svgs = {
 </svg>
 `,
 };
-
-export const CupHot = ({
-  size = 24,
-  color = "currentColor",
-  weight = "outline",
-  ...props
-}) => {
-  const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width={size}
-      height={size}
-      color={color}
-      fill="none"
-      {...props}
-    >
-      <g dangerouslySetInnerHTML={{ __html: svgs[activeWeight] }} />
-    </svg>
-  );
+const CupHot = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+    const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
+   return (
+  react_1.default.createElement(
+    "svg",
+    Object.assign(
+      {
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size,
+        color: color,      
+        fill: "none"      
+      },
+      props
+    ),
+    react_1.default.createElement("g", {
+      dangerouslySetInnerHTML: { __html: svgs[activeWeight] }
+    })
+  )
+);
 };
+exports.CupHot = CupHot;

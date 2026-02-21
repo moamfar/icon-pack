@@ -1,6 +1,10 @@
-
-import React from "react";
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.FlashDrive = void 0;
+const react_1 = __importDefault(require("react"));
 const svgs = {
   "broken": `
 <path d="M19.8302 10.441L20.3648 10.967V10.967L19.8302 10.441ZM17.7614 11.4739C17.4708 11.7692 17.4746 12.244 17.7699 12.5346C18.0651 12.8251 18.54 12.8213 18.8305 12.5261L17.7614 11.4739ZM19.8302 4.20481L19.2957 4.73088V4.73088L19.8302 4.20481ZM22 7.32289H22.75V7.32289H22ZM13.6931 4.20481L14.2277 4.73088H14.2277L13.6931 4.20481ZM16.7617 2V2.75V2.75V2ZM11.4654 5.39919C11.1749 5.69442 11.1787 6.16928 11.4739 6.45982C11.7692 6.75036 12.244 6.74656 12.5346 6.45133L11.4654 5.39919ZM19.2957 9.91489L17.7614 11.4739L18.8305 12.5261L20.3648 10.967L19.2957 9.91489ZM19.2957 4.73088C20.0337 5.48084 20.5334 5.99085 20.8578 6.42291C21.1689 6.83718 21.25 7.09251 21.25 7.32289H22.75C22.75 6.64 22.4695 6.07123 22.0573 5.52225C21.6585 4.99105 21.0732 4.39865 20.3648 3.67874L19.2957 4.73088ZM20.3648 10.967C21.0732 10.2471 21.6585 9.65472 22.0573 9.12352C22.4695 8.57454 22.75 8.00577 22.75 7.32289H21.25C21.25 7.55327 21.1689 7.8086 20.8578 8.22287C20.5334 8.65492 20.0337 9.16493 19.2957 9.91489L20.3648 10.967ZM14.2277 4.73088C14.9659 3.98075 15.4676 3.47324 15.8923 3.14393C16.3003 2.82765 16.5459 2.75 16.7617 2.75V1.25C16.0786 1.25 15.5133 1.53982 14.9733 1.95848C14.4501 2.36411 13.8669 2.959 13.1586 3.67874L14.2277 4.73088ZM20.3648 3.67874C19.6565 2.959 19.0733 2.36411 18.5501 1.95847C18.0101 1.53982 17.4447 1.25 16.7617 1.25V2.75C16.9774 2.75 17.223 2.82765 17.631 3.14393C18.0557 3.47324 18.5574 3.98075 19.2957 4.73088L20.3648 3.67874ZM13.1586 3.67874L11.4654 5.39919L12.5346 6.45133L14.2277 4.73088L13.1586 3.67874Z" fill="currentColor"/>
@@ -27,25 +31,25 @@ const svgs = {
 </svg>
 `,
 };
-
-export const FlashDrive = ({
-  size = 24,
-  color = "currentColor",
-  weight = "outline",
-  ...props
-}) => {
-  const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width={size}
-      height={size}
-      color={color}
-      fill="none"
-      {...props}
-    >
-      <g dangerouslySetInnerHTML={{ __html: svgs[activeWeight] }} />
-    </svg>
-  );
+const FlashDrive = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+    const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
+   return (
+  react_1.default.createElement(
+    "svg",
+    Object.assign(
+      {
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size,
+        color: color,      
+        fill: "none"      
+      },
+      props
+    ),
+    react_1.default.createElement("g", {
+      dangerouslySetInnerHTML: { __html: svgs[activeWeight] }
+    })
+  )
+);
 };
+exports.FlashDrive = FlashDrive;

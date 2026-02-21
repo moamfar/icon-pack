@@ -1,6 +1,10 @@
-
-import React from "react";
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.MaskSad = void 0;
+const react_1 = __importDefault(require("react"));
 const svgs = {
   "broken": `
 <path d="M21 11V12C21 17.4903 16.761 20.1547 14.1014 21.286C13.38 21.5929 13.0193 21.7464 12 21.7464C10.9807 21.7464 10.62 21.5929 9.89856 21.286C7.23896 20.1547 3 17.4903 3 12V6.71889C3 4.52898 3 3.43402 3.70725 2.83489C4.4145 2.23576 5.49553 2.41593 7.6576 2.77627L8.71202 2.95201C10.3523 3.22538 11.1724 3.36207 12 3.36207C12.8276 3.36207 13.6477 3.22538 15.288 2.95201L16.3424 2.77627C18.5045 2.41593 19.5855 2.23576 20.2927 2.83489C21 3.43402 21 4.52898 21 6.71889V7.00002" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -28,25 +32,25 @@ const svgs = {
 </svg>
 `,
 };
-
-export const MaskSad = ({
-  size = 24,
-  color = "currentColor",
-  weight = "outline",
-  ...props
-}) => {
-  const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width={size}
-      height={size}
-      color={color}
-      fill="none"
-      {...props}
-    >
-      <g dangerouslySetInnerHTML={{ __html: svgs[activeWeight] }} />
-    </svg>
-  );
+const MaskSad = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+    const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
+   return (
+  react_1.default.createElement(
+    "svg",
+    Object.assign(
+      {
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size,
+        color: color,      
+        fill: "none"      
+      },
+      props
+    ),
+    react_1.default.createElement("g", {
+      dangerouslySetInnerHTML: { __html: svgs[activeWeight] }
+    })
+  )
+);
 };
+exports.MaskSad = MaskSad;

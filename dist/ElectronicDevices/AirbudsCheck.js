@@ -1,6 +1,10 @@
-
-import React from "react";
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AirbudsCheck = void 0;
+const react_1 = __importDefault(require("react"));
 const svgs = {
   "broken": `
 <path d="M18 11.5V11.3C18 10.7477 18.4477 10.3 19 10.3C20.6569 10.3 22 8.95685 22 7.3V5.1875C22 5.0134 22 4.92635 21.9964 4.8528C21.9207 3.31169 20.6883 2.07932 19.1472 2.00361C19.0736 2 18.9866 2 18.8125 2C18.5223 2 18.3773 2 18.2547 2.00602C15.6861 2.13221 13.6322 4.18614 13.506 6.75466C13.5 6.87726 13.5 7.02234 13.5 7.3125V13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -32,25 +36,25 @@ const svgs = {
 </svg>
 `,
 };
-
-export const AirbudsCheck = ({
-  size = 24,
-  color = "currentColor",
-  weight = "outline",
-  ...props
-}) => {
-  const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width={size}
-      height={size}
-      color={color}
-      fill="none"
-      {...props}
-    >
-      <g dangerouslySetInnerHTML={{ __html: svgs[activeWeight] }} />
-    </svg>
-  );
+const AirbudsCheck = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+    const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
+   return (
+  react_1.default.createElement(
+    "svg",
+    Object.assign(
+      {
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size,
+        color: color,      
+        fill: "none"      
+      },
+      props
+    ),
+    react_1.default.createElement("g", {
+      dangerouslySetInnerHTML: { __html: svgs[activeWeight] }
+    })
+  )
+);
 };
+exports.AirbudsCheck = AirbudsCheck;

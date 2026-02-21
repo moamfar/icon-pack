@@ -1,6 +1,10 @@
-
-import React from "react";
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.FloorLamp = void 0;
+const react_1 = __importDefault(require("react"));
 const svgs = {
   "broken": `
 <path d="M12 18V16.9368C12 15.6554 11.4101 14.4467 10.4035 13.6655L6.52181 10.8909M2.7793 10.6844L5.31139 7.44298M2.7793 10.6844C2.4297 11.132 2.50541 11.8018 3.03895 11.9887C4.2398 12.4094 5.62367 12.0438 6.45481 10.9798C6.47776 10.9505 6.50009 10.9208 6.52181 10.8909M2.7793 10.6844C1.89216 9.97894 1.73982 8.6814 2.43904 7.7863C3.13826 6.8912 4.42425 6.73749 5.31139 7.44298M5.31139 7.44298C5.661 6.99543 6.3242 6.9132 6.62898 7.39296C7.29602 8.44296 7.28701 9.83644 6.52181 10.8909" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -37,25 +41,25 @@ const svgs = {
 </svg>
 `,
 };
-
-export const FloorLamp = ({
-  size = 24,
-  color = "currentColor",
-  weight = "outline",
-  ...props
-}) => {
-  const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width={size}
-      height={size}
-      color={color}
-      fill="none"
-      {...props}
-    >
-      <g dangerouslySetInnerHTML={{ __html: svgs[activeWeight] }} />
-    </svg>
-  );
+const FloorLamp = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+    const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
+   return (
+  react_1.default.createElement(
+    "svg",
+    Object.assign(
+      {
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size,
+        color: color,      
+        fill: "none"      
+      },
+      props
+    ),
+    react_1.default.createElement("g", {
+      dangerouslySetInnerHTML: { __html: svgs[activeWeight] }
+    })
+  )
+);
 };
+exports.FloorLamp = FloorLamp;

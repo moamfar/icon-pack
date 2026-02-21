@@ -1,6 +1,10 @@
-
-import React from "react";
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Condicioner = void 0;
+const react_1 = __importDefault(require("react"));
 const svgs = {
   "broken": `
 <path d="M16.4286 2C18.8427 2 20.0497 2 20.8705 2.65451C21.0461 2.79456 21.2054 2.9539 21.3455 3.12953C22 3.95025 22 5.15731 22 7.57143C22 10.7902 22 12.3997 21.1273 13.494C20.9406 13.7281 20.7281 13.9406 20.494 14.1273C19.3997 15 17.7903 15 14.5714 15H9.42857C6.20975 15 4.60034 15 3.50604 14.1273C3.27187 13.9406 3.05942 13.7281 2.87267 13.494C2 12.3997 2 10.7903 2 7.57143C2 5.15731 2 3.95025 2.65451 3.12953C2.79456 2.9539 2.9539 2.79456 3.12953 2.65451C3.95025 2 5.15731 2 7.57143 2H12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -38,25 +42,25 @@ const svgs = {
 </svg>
 `,
 };
-
-export const Condicioner = ({
-  size = 24,
-  color = "currentColor",
-  weight = "outline",
-  ...props
-}) => {
-  const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width={size}
-      height={size}
-      color={color}
-      fill="none"
-      {...props}
-    >
-      <g dangerouslySetInnerHTML={{ __html: svgs[activeWeight] }} />
-    </svg>
-  );
+const Condicioner = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+    const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
+   return (
+  react_1.default.createElement(
+    "svg",
+    Object.assign(
+      {
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size,
+        color: color,      
+        fill: "none"      
+      },
+      props
+    ),
+    react_1.default.createElement("g", {
+      dangerouslySetInnerHTML: { __html: svgs[activeWeight] }
+    })
+  )
+);
 };
+exports.Condicioner = Condicioner;

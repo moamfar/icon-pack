@@ -1,6 +1,10 @@
-
-import React from "react";
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Case = void 0;
+const react_1 = __importDefault(require("react"));
 const svgs = {
   "broken": `
 <path d="M12 21.25C11.5858 21.25 11.25 21.5858 11.25 22C11.25 22.4142 11.5858 22.75 12 22.75V21.25ZM4.31802 20.8284L4.81629 20.2679L4.31802 20.8284ZM19.682 20.8284L19.1837 20.2679V20.2679L19.682 20.8284ZM7.95476 22.6837C8.36822 22.7087 8.72365 22.3938 8.74863 21.9804C8.77362 21.5669 8.4587 21.2115 8.04524 21.1865L7.95476 22.6837ZM2.25 12C2.25 13.8741 2.24918 15.8307 2.41875 17.4664C2.50368 18.2856 2.63401 19.0548 2.84074 19.7105C3.04411 20.3557 3.3444 20.9665 3.81975 21.389L4.81629 20.2679C4.63262 20.1046 4.43867 19.7904 4.27134 19.2596C4.10738 18.7394 3.99058 18.0818 3.91075 17.3118C3.75082 15.769 3.75 13.8971 3.75 12H2.25ZM12 22.75C14.1024 22.75 15.7464 22.7513 17.0267 22.5983C18.3204 22.4436 19.3568 22.1209 20.1803 21.389L19.1837 20.2679C18.6891 20.7075 18.0058 20.9706 16.8487 21.1089C15.6782 21.2487 14.1402 21.25 12 21.25V22.75ZM8.04524 21.1865C6.33099 21.0829 5.4315 20.8147 4.81629 20.2679L3.81975 21.389C4.83576 22.2921 6.18271 22.5767 7.95476 22.6837L8.04524 21.1865ZM20.2499 12.3873C20.2492 14.2185 20.2371 16.0032 20.0724 17.4673C19.9902 18.1982 19.8728 18.8201 19.7119 19.3117C19.548 19.8126 19.3605 20.1108 19.1837 20.2679L20.1803 21.389C20.6399 20.9804 20.9352 20.3963 21.1375 19.7783C21.3428 19.1509 21.4751 18.4171 21.563 17.635C21.7387 16.0731 21.7492 14.2032 21.7499 12.3879L20.2499 12.3873Z" fill="currentColor"/>
@@ -24,25 +28,25 @@ const svgs = {
 </svg>
 `,
 };
-
-export const Case = ({
-  size = 24,
-  color = "currentColor",
-  weight = "outline",
-  ...props
-}) => {
-  const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width={size}
-      height={size}
-      color={color}
-      fill="none"
-      {...props}
-    >
-      <g dangerouslySetInnerHTML={{ __html: svgs[activeWeight] }} />
-    </svg>
-  );
+const Case = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+    const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
+   return (
+  react_1.default.createElement(
+    "svg",
+    Object.assign(
+      {
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size,
+        color: color,      
+        fill: "none"      
+      },
+      props
+    ),
+    react_1.default.createElement("g", {
+      dangerouslySetInnerHTML: { __html: svgs[activeWeight] }
+    })
+  )
+);
 };
+exports.Case = Case;

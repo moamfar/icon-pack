@@ -1,6 +1,10 @@
-
-import React from "react";
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.JarOfPills2 = void 0;
+const react_1 = __importDefault(require("react"));
 const svgs = {
   "broken": `
 <path d="M4 3.5C4 3.03406 4 2.80109 4.07612 2.61732C4.17761 2.37229 4.37229 2.17761 4.61732 2.07612C4.80109 2 5.03406 2 5.5 2H14.5C14.9659 2 15.1989 2 15.3827 2.07612C15.6277 2.17761 15.8224 2.37229 15.9239 2.61732C16 2.80109 16 3.03406 16 3.5C16 3.96594 16 4.19891 15.9239 4.38268C15.8224 4.62771 15.6277 4.82239 15.3827 4.92388C15.1989 5 14.9659 5 14.5 5H5.5C5.03406 5 4.80109 5 4.61732 4.92388C4.37229 4.82239 4.17761 4.62771 4.07612 4.38268C4 4.19891 4 3.96594 4 3.5Z" stroke="currentColor" stroke-width="1.5"/>
@@ -37,25 +41,25 @@ const svgs = {
 </svg>
 `,
 };
-
-export const JarOfPills2 = ({
-  size = 24,
-  color = "currentColor",
-  weight = "outline",
-  ...props
-}) => {
-  const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width={size}
-      height={size}
-      color={color}
-      fill="none"
-      {...props}
-    >
-      <g dangerouslySetInnerHTML={{ __html: svgs[activeWeight] }} />
-    </svg>
-  );
+const JarOfPills2 = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+    const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
+   return (
+  react_1.default.createElement(
+    "svg",
+    Object.assign(
+      {
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size,
+        color: color,      
+        fill: "none"      
+      },
+      props
+    ),
+    react_1.default.createElement("g", {
+      dangerouslySetInnerHTML: { __html: svgs[activeWeight] }
+    })
+  )
+);
 };
+exports.JarOfPills2 = JarOfPills2;

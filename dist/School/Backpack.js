@@ -1,6 +1,10 @@
-
-import React from "react";
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Backpack = void 0;
+const react_1 = __importDefault(require("react"));
 const svgs = {
   "broken": `
 <path d="M20.9994 10.7307C21 10.772 21 10.8186 21 10.9116V16.3755C21 18.4935 19.529 20.3273 17.4615 20.7867C13.8644 21.5861 10.1356 21.5861 6.53853 20.7867C4.47101 20.3273 3 18.4935 3 16.3755V10.9116C3 10.8186 3 10.772 3.00057 10.7307C3.0385 7.98057 4.94139 5.6084 7.61778 4.9748C7.65803 4.96527 7.70344 4.95518 7.79425 4.935C7.87787 4.91641 7.91968 4.90712 7.96109 4.89811C10.6226 4.31912 13.3774 4.31912 16.0389 4.89811C16.0803 4.90712 16.1221 4.91641 16.2057 4.935C16.2966 4.95518 16.342 4.96527 16.3822 4.9748C17.6946 5.28548 18.821 6.01418 19.6327 7.00049" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -27,25 +31,25 @@ const svgs = {
 </svg>
 `,
 };
-
-export const Backpack = ({
-  size = 24,
-  color = "currentColor",
-  weight = "outline",
-  ...props
-}) => {
-  const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width={size}
-      height={size}
-      color={color}
-      fill="none"
-      {...props}
-    >
-      <g dangerouslySetInnerHTML={{ __html: svgs[activeWeight] }} />
-    </svg>
-  );
+const Backpack = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+    const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
+   return (
+  react_1.default.createElement(
+    "svg",
+    Object.assign(
+      {
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size,
+        color: color,      
+        fill: "none"      
+      },
+      props
+    ),
+    react_1.default.createElement("g", {
+      dangerouslySetInnerHTML: { __html: svgs[activeWeight] }
+    })
+  )
+);
 };
+exports.Backpack = Backpack;

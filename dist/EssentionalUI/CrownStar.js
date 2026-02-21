@@ -1,6 +1,10 @@
-
-import React from "react";
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CrownStar = void 0;
+const react_1 = __importDefault(require("react"));
 const svgs = {
   "broken": `
 <path d="M11.1459 12.5227C11.5259 11.841 11.7159 11.5002 12 11.5002C12.2841 11.5002 12.4741 11.841 12.8541 12.5227L12.9524 12.699C13.0603 12.8927 13.1143 12.9896 13.1985 13.0535C13.2827 13.1174 13.3875 13.1411 13.5972 13.1886L13.7881 13.2318C14.526 13.3987 14.895 13.4822 14.9828 13.7645C15.0706 14.0467 14.819 14.3409 14.316 14.9291L14.1858 15.0813C14.0429 15.2485 13.9714 15.3321 13.9392 15.4355C13.9071 15.5389 13.9179 15.6504 13.9395 15.8734L13.9592 16.0765C14.0352 16.8613 14.0733 17.2538 13.8435 17.4282C13.6136 17.6027 13.2682 17.4436 12.5773 17.1255L12.3986 17.0432C12.2022 16.9528 12.1041 16.9076 12 16.9076C11.8959 16.9076 11.7978 16.9528 11.6014 17.0432L11.4227 17.1255C10.7318 17.4436 10.3864 17.6027 10.1565 17.4282C9.92674 17.2538 9.96476 16.8613 10.0408 16.0765L10.0605 15.8734C10.0821 15.6504 10.0929 15.5389 10.0608 15.4355C10.0286 15.3321 9.95713 15.2485 9.81418 15.0813L9.68403 14.9291C9.18097 14.3409 8.92945 14.0467 9.01723 13.7645C9.10501 13.4822 9.47396 13.3987 10.2119 13.2318L10.4028 13.1886C10.6125 13.1411 10.7173 13.1174 10.8015 13.0535C10.8857 12.9896 10.9397 12.8927 11.0476 12.699L11.1459 12.5227Z" stroke="currentColor" stroke-width="1.5"/>
@@ -22,25 +26,25 @@ const svgs = {
 </svg>
 `,
 };
-
-export const CrownStar = ({
-  size = 24,
-  color = "currentColor",
-  weight = "outline",
-  ...props
-}) => {
-  const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width={size}
-      height={size}
-      color={color}
-      fill="none"
-      {...props}
-    >
-      <g dangerouslySetInnerHTML={{ __html: svgs[activeWeight] }} />
-    </svg>
-  );
+const CrownStar = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+    const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
+   return (
+  react_1.default.createElement(
+    "svg",
+    Object.assign(
+      {
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size,
+        color: color,      
+        fill: "none"      
+      },
+      props
+    ),
+    react_1.default.createElement("g", {
+      dangerouslySetInnerHTML: { __html: svgs[activeWeight] }
+    })
+  )
+);
 };
+exports.CrownStar = CrownStar;

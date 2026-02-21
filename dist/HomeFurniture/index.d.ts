@@ -18,7 +18,7 @@ export { FloorLampMinimalistic } from "./FloorLampMinimalistic";
 export { FloorLamp } from "./FloorLamp";
 export { Fridge } from "./Fridge";
 export { Lamp } from "./Lamp";
-export { Mirror } from "./Mirror";
+export { MirrorHomeFurniture } from "./MirrorHomeFurniture";
 export { RemoteController2 } from "./RemoteController2";
 export { RemoteControllerMinimalistic } from "./RemoteControllerMinimalistic";
 export { RemoteController } from "./RemoteController";

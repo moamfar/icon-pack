@@ -19,7 +19,7 @@ export { ChatUnread } from "./ChatUnread";
 export { CheckRead } from "./CheckRead";
 export { Dialog2 } from "./Dialog2";
 export { Dialog } from "./Dialog";
-export { Forward } from "./Forward";
+export { ForwardMessagesConversation } from "./ForwardMessagesConversation";
 export { InboxArchive } from "./InboxArchive";
 export { InboxIn } from "./InboxIn";
 export { InboxLine } from "./InboxLine";

@@ -1,6 +1,10 @@
-
-import React from "react";
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.InboxArchive = void 0;
+const react_1 = __importDefault(require("react"));
 const svgs = {
   "broken": `
 <path d="M4 15H6.30147C7.10984 15 7.51402 15 7.87676 15.1477C7.90979 15.1612 7.94245 15.1755 7.97471 15.1907C8.32903 15.3576 8.60269 15.6551 9.15 16.25L9.18546 16.2885C9.69759 16.8452 9.95366 17.1235 10.2809 17.2877C10.3422 17.3184 10.405 17.346 10.4692 17.3703C10.8115 17.5 11.1897 17.5 11.9462 17.5C12.6613 17.5 13.0189 17.5 13.3458 17.3829C13.4071 17.361 13.4673 17.336 13.5262 17.3082C13.8402 17.1598 14.0931 16.9069 14.5987 16.4013L14.8284 16.1716C15.4065 15.5935 15.6955 15.3045 16.0631 15.1522C16.4306 15 16.8394 15 17.6569 15H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -26,25 +30,25 @@ const svgs = {
 </svg>
 `,
 };
-
-export const InboxArchive = ({
-  size = 24,
-  color = "currentColor",
-  weight = "outline",
-  ...props
-}) => {
-  const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width={size}
-      height={size}
-      color={color}
-      fill="none"
-      {...props}
-    >
-      <g dangerouslySetInnerHTML={{ __html: svgs[activeWeight] }} />
-    </svg>
-  );
+const InboxArchive = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+    const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
+   return (
+  react_1.default.createElement(
+    "svg",
+    Object.assign(
+      {
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size,
+        color: color,      
+        fill: "none"      
+      },
+      props
+    ),
+    react_1.default.createElement("g", {
+      dangerouslySetInnerHTML: { __html: svgs[activeWeight] }
+    })
+  )
+);
 };
+exports.InboxArchive = InboxArchive;

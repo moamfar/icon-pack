@@ -1,6 +1,10 @@
-
-import React from "react";
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.StarFall2 = void 0;
+const react_1 = __importDefault(require("react"));
 const svgs = {
   "broken": `
 <path d="M9.47939 6.8252C7.66013 7.50672 6.75051 7.84748 6.64075 8.55405C6.531 9.26062 7.2938 9.86506 8.81941 11.0739L9.2141 11.3867C9.64763 11.7302 9.86439 11.902 9.98865 12.1361C10.1129 12.3702 10.1306 12.6402 10.166 13.1801L10.1982 13.6717C10.3227 15.5717 10.385 16.5217 11.0436 16.8493C11.7022 17.1768 12.521 16.6649 14.1586 15.6412L14.5823 15.3763C15.0476 15.0854 15.2803 14.9399 15.5464 14.8999C15.8125 14.86 16.082 14.93 16.6208 15.07L17.1114 15.1975C19.0076 15.6903 19.9557 15.9367 20.4725 15.4325C20.9893 14.9284 20.7325 14.0076 20.219 12.166M20.6651 9.29403C21.7125 7.69854 22.2362 6.90079 21.897 6.26168C21.5578 5.62258 20.5803 5.56537 18.6254 5.45095L18.1196 5.42135C17.564 5.38884 17.2863 5.37259 17.045 5.25261C16.8037 5.13263 16.6263 4.9225 16.2714 4.50226L15.9483 4.11967C14.6994 2.64083 14.075 1.90141 13.3486 2.01056C12.6221 2.11971 12.2747 3.00516 11.58 4.77604" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -26,25 +30,25 @@ const svgs = {
 </svg>
 `,
 };
-
-export const StarFall2 = ({
-  size = 24,
-  color = "currentColor",
-  weight = "outline",
-  ...props
-}) => {
-  const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width={size}
-      height={size}
-      color={color}
-      fill="none"
-      {...props}
-    >
-      <g dangerouslySetInnerHTML={{ __html: svgs[activeWeight] }} />
-    </svg>
-  );
+const StarFall2 = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+    const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
+   return (
+  react_1.default.createElement(
+    "svg",
+    Object.assign(
+      {
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size,
+        color: color,      
+        fill: "none"      
+      },
+      props
+    ),
+    react_1.default.createElement("g", {
+      dangerouslySetInnerHTML: { __html: svgs[activeWeight] }
+    })
+  )
+);
 };
+exports.StarFall2 = StarFall2;

@@ -1,6 +1,10 @@
-
-import React from "react";
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ChefHatHeart = void 0;
+const react_1 = __importDefault(require("react"));
 const svgs = {
   "broken": `
 <path d="M11.0429 13.6693L10.5992 14.274H10.5992L11.0429 13.6693ZM12 9.99506L11.4813 10.5368C11.7713 10.8145 12.2287 10.8145 12.5187 10.5368L12 9.99506ZM12.9571 13.6693L12.5135 13.0646L12.9571 13.6693ZM12 14.1313L12 13.3813H12L12 14.1313ZM11.4865 13.0646C11.0686 12.7579 10.6081 12.375 10.2595 11.9718C9.89122 11.546 9.75 11.215 9.75 11.0004H8.25C8.25 11.7703 8.6912 12.4516 9.1249 12.953C9.57819 13.4772 10.1391 13.9364 10.5992 14.274L11.4865 13.0646ZM9.75 11.0004C9.75 10.4244 10.0126 10.1737 10.2419 10.0934C10.4922 10.0056 10.9558 10.0336 11.4813 10.5368L12.5187 9.45334C11.6943 8.66399 10.6579 8.35803 9.74566 8.67781C8.81245 9.00494 8.25 9.90326 8.25 11.0004H9.75ZM13.4008 14.274C13.8609 13.9364 14.4218 13.4772 14.8751 12.953C15.3088 12.4516 15.75 11.7703 15.75 11.0004H14.25C14.25 11.215 14.1088 11.5461 13.7405 11.9718C13.3919 12.375 12.9314 12.7579 12.5135 13.0646L13.4008 14.274ZM15.75 11.0004C15.75 9.90325 15.1875 9.00494 14.2543 8.6778C13.3421 8.35803 12.3057 8.66399 11.4813 9.45334L12.5187 10.5368C13.0442 10.0336 13.5078 10.0056 13.7581 10.0933C13.9874 10.1737 14.25 10.4244 14.25 11.0004H15.75ZM10.5992 14.274C10.9678 14.5444 11.3816 14.8813 12 14.8813L12 13.3813C11.9756 13.3813 11.9605 13.3812 11.9061 13.3525C11.8202 13.3071 11.7128 13.2306 11.4865 13.0646L10.5992 14.274ZM12.5135 13.0646C12.2872 13.2306 12.1798 13.3071 12.0939 13.3525C12.0395 13.3812 12.0244 13.3813 12 13.3813L12 14.8813C12.6184 14.8813 13.0322 14.5445 13.4008 14.274L12.5135 13.0646Z" fill="currentColor"/>
@@ -24,25 +28,25 @@ const svgs = {
 </svg>
 `,
 };
-
-export const ChefHatHeart = ({
-  size = 24,
-  color = "currentColor",
-  weight = "outline",
-  ...props
-}) => {
-  const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width={size}
-      height={size}
-      color={color}
-      fill="none"
-      {...props}
-    >
-      <g dangerouslySetInnerHTML={{ __html: svgs[activeWeight] }} />
-    </svg>
-  );
+const ChefHatHeart = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+    const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
+   return (
+  react_1.default.createElement(
+    "svg",
+    Object.assign(
+      {
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size,
+        color: color,      
+        fill: "none"      
+      },
+      props
+    ),
+    react_1.default.createElement("g", {
+      dangerouslySetInnerHTML: { __html: svgs[activeWeight] }
+    })
+  )
+);
 };
+exports.ChefHatHeart = ChefHatHeart;

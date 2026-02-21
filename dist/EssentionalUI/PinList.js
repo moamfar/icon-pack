@@ -1,6 +1,10 @@
-
-import React from "react";
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.PinList = void 0;
+const react_1 = __importDefault(require("react"));
 const svgs = {
   "broken": `
 <path d="M13.6318 8.22381C15.1618 9.75389 15.9269 10.5189 15.9262 11.3483C15.926 11.6192 15.8707 11.8873 15.7638 12.1362C15.4364 12.8982 14.4311 13.2983 12.4206 14.0985L12.2751 14.1564C11.7052 14.3832 11.4202 14.4966 11.1903 14.6788C11.0159 14.817 10.8657 14.9833 10.7461 15.1709C10.5883 15.4182 10.5046 15.7133 10.3371 16.3034C10.0774 17.2185 9.94751 17.6761 9.67057 17.8791C9.46475 18.03 9.20903 18.0965 8.95577 18.065C8.61499 18.0226 8.27867 17.6863 7.60603 17.0136L4.47554 13.8832C3.80289 13.2105 3.46657 12.8742 3.42416 12.5334C3.39264 12.2802 3.45915 12.0244 3.61005 11.8186C3.81311 11.5417 4.27067 11.4118 5.18578 11.1521C5.77593 10.9846 6.071 10.9008 6.31829 10.7431C6.50589 10.6234 6.67221 10.4733 6.8104 10.2989C6.99254 10.069 7.10596 9.78401 7.33281 9.21404L7.39072 9.06854C8.19087 7.05806 8.59095 6.05282 9.35297 5.72541C9.60189 5.61846 9.86995 5.56319 10.1409 5.56297C10.503 5.56268 10.8529 5.70837 11.2595 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -35,25 +39,25 @@ const svgs = {
 </svg>
 `,
 };
-
-export const PinList = ({
-  size = 24,
-  color = "currentColor",
-  weight = "outline",
-  ...props
-}) => {
-  const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width={size}
-      height={size}
-      color={color}
-      fill="none"
-      {...props}
-    >
-      <g dangerouslySetInnerHTML={{ __html: svgs[activeWeight] }} />
-    </svg>
-  );
+const PinList = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+    const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
+   return (
+  react_1.default.createElement(
+    "svg",
+    Object.assign(
+      {
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size,
+        color: color,      
+        fill: "none"      
+      },
+      props
+    ),
+    react_1.default.createElement("g", {
+      dangerouslySetInnerHTML: { __html: svgs[activeWeight] }
+    })
+  )
+);
 };
+exports.PinList = PinList;

@@ -1,6 +1,10 @@
-
-import React from "react";
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.BookmarkSquare = void 0;
+const react_1 = __importDefault(require("react"));
 const svgs = {
   "broken": `
 <path d="M17 2V11.8076C17 12.7825 17 13.27 16.8709 13.5607C16.5766 14.2233 15.8506 14.5805 15.1461 14.4095C14.8369 14.3344 14.4507 14.037 13.6782 13.4422C13.2421 13.1064 13.024 12.9385 12.797 12.8398C12.2886 12.619 11.7114 12.619 11.203 12.8398C10.976 12.9385 10.7579 13.1064 10.3218 13.4422C9.5493 14.037 9.16307 14.3344 8.85391 14.4095C8.14942 14.5805 7.42342 14.2233 7.12914 13.5607C7 13.27 7 12.7825 7 11.8076V2" stroke="currentColor" stroke-width="1.5"/>
@@ -25,25 +29,25 @@ const svgs = {
 </svg>
 `,
 };
-
-export const BookmarkSquare = ({
-  size = 24,
-  color = "currentColor",
-  weight = "outline",
-  ...props
-}) => {
-  const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
-
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width={size}
-      height={size}
-      color={color}
-      fill="none"
-      {...props}
-    >
-      <g dangerouslySetInnerHTML={{ __html: svgs[activeWeight] }} />
-    </svg>
-  );
+const BookmarkSquare = ({ size = 24, color = "currentColor", weight = "outline", ...props }) => {
+    const activeWeight = svgs[weight] ? weight : Object.keys(svgs)[0];
+   return (
+  react_1.default.createElement(
+    "svg",
+    Object.assign(
+      {
+        viewBox: "0 0 24 24",
+        width: size,
+        height: size,
+        color: color,      
+        fill: "none"      
+      },
+      props
+    ),
+    react_1.default.createElement("g", {
+      dangerouslySetInnerHTML: { __html: svgs[activeWeight] }
+    })
+  )
+);
 };
+exports.BookmarkSquare = BookmarkSquare;
