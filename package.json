@@ -1,6 +1,6 @@
 {
   "name": "@moamfar/icon-pack",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A collection of beautiful, weight-adjustable SVG icons.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
