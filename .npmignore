@@ -1,11 +1,7 @@
+# Source and development
 src/
-node_modules/
-*.log
-*.tgz
-.DS_Store
-.vscode/
-.idea/
-coverage/
+scripts/
+svgs/
 *.config.js
 *.test.*
 *.spec.*
@@ -14,7 +10,17 @@ build.js
 readme.js
 generate-enhanced-types.js
 generate-icons-html.js
-dist/svgs
-svgs
+
+# Environment and IDE
+node_modules/
+.vscode/
+.idea/
+.DS_Store
+*.log
+
+# Build artifacts we don't want in the package
+dist/svgs/        # If you don't want SVG files in the package
 dist/icon-explorer.html
-scripts/
+
+# Testing
+coverage/
