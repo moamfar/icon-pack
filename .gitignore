@@ -15,3 +15,5 @@ tsconfig.json
 coverage/
 scripts/
 src/raw
+
+figma-plugin/
