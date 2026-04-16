@@ -22,6 +22,7 @@
         --border-hover: #f3c256;
         --accent-color: #f3c256;
         --accent-light: #363636;
+        --accent-dark: #271d07;
         --card-bg: #181818;
         --shadow: rgba(0, 0, 0, 0.1);
         --header-bg: rgba(30, 30, 30, 0.9);
@@ -52,6 +53,7 @@
         background: var(--bg-primary);
         color: var(--text-primary);
         line-height: 1.5;
+        padding-top: 10rem;
         overflow-x: hidden;
         width: 100%;
         transition:
@@ -63,7 +65,7 @@
         background: var(--header-bg);
         border-bottom: 1px solid var(--border-color);
         padding: 1rem 2rem;
-        position: sticky;
+        position: fixed;
         top: 0;
         z-index: 40;
         backdrop-filter: blur(8px);
@@ -418,6 +420,7 @@
         list-style: none;
       }
 
+     
       .category-item {
         margin-bottom: 0.2rem;
       }
@@ -440,7 +443,12 @@
         color: var(--text-primary);
       }
 
-      .category-link.active {
+      .category-item.active {
+        position: sticky;
+        top: -0.5rem;
+      }
+
+      .category-item.active .category-link {
         background: var(--accent-light);
         color: var(--accent-color);
         font-weight: 500;
@@ -485,7 +493,6 @@
 
       .icon-card:hover {
         transform: translateY(-2px);
-        // box-shadow: 0 10px 25px -5px var(--shadow);
         border-color: var(--accent-color);
       }
 
@@ -510,11 +517,14 @@
         filter: drop-shadow(0 2px 4px var(--shadow));
       }
 
-      .icon-card:hover .icon-preview img {
-        transform: scale(1.1);
+      .icon-card:hover .icon-preview {
+        background: var(--accent-dark);
       }
-      .icon-card:hover .icon-name  {
-       color: var(--accent-color);
+      .icon-card:hover .icon-preview img {
+        transform: scale(1.25);
+      }
+      .icon-card:hover .icon-name {
+        color: var(--accent-color);
       }
 
       .icon-info {
@@ -530,7 +540,6 @@
         overflow: hidden;
         text-overflow: ellipsis;
       }
-
 
       .icon-category {
         font-size: 0.7rem;
@@ -565,9 +574,9 @@
         text-transform: capitalize;
       }
 
-      .category-section {
+       .category-section {
         margin-bottom: 2.5rem;
-        scroll-margin-top: 135px;
+        scroll-margin-top: 10rem;
         width: 100%;
       }
 
@@ -581,10 +590,10 @@
         align-items: center;
         gap: 0.75rem;
         position: sticky;
-        top: 135px;
+        top: 10rem;
         background: var(--bg-primary);
         z-index: 30;
-        padding-top: 0.5rem;
+        padding-top: 1.25rem;
         width: 100%;
         transition:
           background-color 0.3s,
@@ -636,7 +645,7 @@
         opacity: 0;
         transition: opacity 0.2s;
         pointer-events: none;
-        z-index:10;
+        z-index: 10;
       }
 
       .icon-card:hover .copy-tooltip {
@@ -775,10 +784,10 @@
       }
 
       .code-copy-div {
-        width:100%;
+        width: 100%;
         margin-bottom: 0.5rem;
-        display:flex;
-        align-items:center;
+        display: flex;
+        align-items: center;
         justify-content: space-between;
       }
 
@@ -813,6 +822,10 @@
 
         .header-left {
           gap: 0.5rem;
+        }
+
+        .category-item.active {
+          position: inherit;
         }
 
         .header-stats {
@@ -905,7 +918,8 @@
         }
 
         .category-title {
-          top: 110px;
+          top: 10rem;
+          padding-top: 0.5rem;
           font-size: 1.1rem;
           width: 100%;
         }
@@ -40804,8 +40818,8 @@
         function renderSidebar() {
             const list = document.getElementById('categoryList');
             list.innerHTML = `
-                <li class="category-item">
-                    <a class="category-link ${state.activeCategory === 'all' ? 'active' : ''}" 
+                <li class="category-item ${state.activeCategory === 'all' ? 'active' : ''}">
+                    <a class="category-link" 
                        onclick="setCategory('all')">
                         All Icons
                         <span class="category-count">${state.icons.length}</span>
@@ -40814,8 +40828,8 @@
                 ${state.categories.map(category => {
                     const count = state.icons.filter(icon => icon.categories.includes(category)).length;
                     return `
-                        <li class="category-item">
-                            <a class="category-link ${state.activeCategory === category ? 'active' : ''}" 
+                        <li class="category-item ${state.activeCategory === category ? 'active' : ''}">
+                            <a class="category-link" 
                                onclick="setCategory('${category}')">
                                 ${category}
                                 <span class="category-count">${count}</span>
