@@ -1,10 +1,10 @@
-# @moamfar/icon-pack
+# glyphara-icons
 
 A collection of beautiful, weight-adjustable SVG icons.
 
-![npm version](https://img.shields.io/npm/v/@moamfar/icon-pack.svg)
-![npm downloads](https://img.shields.io/npm/dm/@moamfar/icon-pack.svg)
-![license](https://img.shields.io/npm/l/@moamfar/icon-pack.svg)
+![npm version](https://img.shields.io/npm/v/glyphara-icons.svg)
+![npm downloads](https://img.shields.io/npm/dm/glyphara-icons.svg)
+![license](https://img.shields.io/npm/l/glyphara-icons.svg)
 ![TypeScript](https://img.shields.io/badge/TypeScript-%E2%9C%94-blue)
 
 ---
@@ -22,13 +22,13 @@ A collection of beautiful, weight-adjustable SVG icons.
 ## 📦 Installation
 
 ```bash
-npm install @moamfar/icon-pack
+npm install glyphara-icons
 ```
 
 or
 
 ```bash
-yarn add @moamfar/icon-pack
+yarn add glyphara-icons
 ```
 
 ---
@@ -36,7 +36,7 @@ yarn add @moamfar/icon-pack
 ## 🚀 Quick Start
 
 ```tsx
-import { Heart, Star, User } from "@moamfar/icon-pack";
+import { Heart, Star, User } from "glyphara-icons";
 
 function App() {
   return (
@@ -75,7 +75,7 @@ Each icon includes:
 
 ## 🗂 Available Icons
 
-[Icons Preview](https://moamfar.github.io/icon-pack/icon-explorer.html)
+[Icons Preview](https://moamfar.github.io/glyphara-icons/icon-explorer.html)
 
 ---
 

@@ -1,6 +1,6 @@
 {
-  "name": "@moamfar/icon-pack",
-  "version": "1.1.5",
+  "name": "glyphara-icons",
+  "version": "1.0.0",
   "description": "A collection of beautiful, weight-adjustable SVG icons.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -48,10 +48,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/moamfar/icon-pack.git"
+    "url": "git+https://github.com/moamfar/glyphara-icons.git"
   },
   "bugs": {
-    "url": "https://github.com/moamfar/icon-pack/issues"
+    "url": "https://github.com/moamfar/glyphara-icons/issues"
   },
-  "homepage": "https://github.com/moamfar/icon-pack#readme"
+  "homepage": "https://github.com/moamfar/glyphara-icons#readme"
 }
